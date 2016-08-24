@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class Catagories {
+public class Catagory {
 	@Id
 	@NotNull
 	@Size(min=3, max=225)
@@ -17,9 +17,9 @@ public class Catagories {
 	@JoinColumn(name="products_productID", nullable=false)
 	private Product product;
 	
-	public Catagories() {}
+	public Catagory() {}
 	
-	public Catagories(String catagory, Product product) {
+	public Catagory(String catagory, Product product) {
 		this.catagory = catagory;
 		this.product = product;
 	}
