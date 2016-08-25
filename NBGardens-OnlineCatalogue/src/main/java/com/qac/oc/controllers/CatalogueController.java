@@ -9,9 +9,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
-import com.qac.oc.entities.Catagory;
 import com.qac.oc.entities.Product;
 import com.qac.oc.services.CatagoryService;
 import com.qac.oc.services.ProductService;
@@ -25,20 +24,16 @@ public class CatalogueController {
 	private ProductService productService;
 	
 	@GET
-	@Produces
-	@Path("/browse")
-	public String retrieveByCatagory(@QueryParam("catagory") @DefaultValue("all") String catagory) {
-		List<Product> results = catagoryService.filterByCatagory(catagory);
-		//TODO
-		return null;
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/browse/{catagory}")
+	public List<Product> retrieveByCatagory(@PathParam("catagory") @DefaultValue("all") String catagory) {
+		return catagoryService.filterByCatagory(catagory);
 	}
 	
 	@GET
-	@Produces
+	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{id}")
-	public String retrieveById(@PathParam("id") String id) {
-		Product result = productService.findProductById(id);
-		//TODO
-		return null;
+	public Product retrieveById(@PathParam("id") String id) {
+		return productService.findProductById(id);
 	}
 }

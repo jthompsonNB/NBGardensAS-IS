@@ -8,6 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import com.qac.oc.entities.Product;
 import com.qac.oc.services.SearchService;
@@ -19,11 +20,9 @@ public class SearchController {
 	private SearchService searchService;
 	
 	@GET
-	@Path("/")
-	@Produces
-	public String search(@PathParam("term") String term) {
-		List<Product> results = searchService.findByKeyword(term);
-		//TODO
-		return null;
+	@Path("/{term}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Product> search(@PathParam("term") String term) {
+		return searchService.findByKeyword(term);
 	}
 }

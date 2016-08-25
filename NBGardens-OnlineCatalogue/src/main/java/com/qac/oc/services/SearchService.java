@@ -8,11 +8,14 @@ import javax.inject.Inject;
 
 import com.qac.oc.entities.Product;
 import com.qac.oc.repositories.ProductRepository;
+import com.qac.oc.util.Mongo;
 
 @Stateless
 public class SearchService {
-	@Inject
+	@Inject @Mongo
 	private ProductRepository productRepository;
+	@Inject
+	private CatagoryService catagoryService;
 	
 	public List<Product> findByKeyword(String term) {
 		List<Product> results = new ArrayList<>();
@@ -31,12 +34,10 @@ public class SearchService {
 	}
 	
 	private List<Product> searchByProductDescription(String description) {
-		// TODO Auto-generated method stub
-		return null;
+		return productRepository.findByDescriptionLike(description);
 	}
 	
 	private List<Product> searchByProductCatagory(String catagory) {
-		// TODO Auto-generated method stub
-		return null;
+		return catagoryService.filterByCatagory(catagory);
 	}
 }

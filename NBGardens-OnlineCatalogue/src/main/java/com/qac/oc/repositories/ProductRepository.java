@@ -8,4 +8,5 @@ public interface ProductRepository {
 	public List<Product> findAll();
 	public Product findById(long longValue);
 	public List<Product> findByNameLike(String name);
+	public List<Product> findByDescriptionLike(String description);
 }
