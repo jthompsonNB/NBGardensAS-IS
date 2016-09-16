@@ -29,4 +29,14 @@ public class Catagory {
 
 	public void setCatagory(String catagory) { this.catagory = catagory; }
 	public void setProduct(Product product) { this.product = product; }
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj.getClass().equals(this.getClass())) {
+			Catagory catagory = (Catagory) obj;
+			if (catagory.catagory.equalsIgnoreCase(this.catagory))
+				return true;
+		}
+		return false;
+	}
 }

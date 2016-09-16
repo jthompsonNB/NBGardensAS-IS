@@ -11,6 +11,11 @@ import com.qac.oc.entities.Product;
 import com.qac.oc.repositories.CatagoryRepository;
 import com.qac.oc.repositories.ProductRepository;
 
+/**
+ * 
+ * @author James Thompson
+ *
+ */
 @Stateless
 public class CatagoryService {
 	@Inject
@@ -18,6 +23,13 @@ public class CatagoryService {
 	@Inject
 	private ProductRepository productRepository;
 
+	
+	/**
+	 * 
+	 * 
+	 * @param catagory
+	 * @return
+	 */
 	public List<Product> filterByCatagory(String catagory) {
 		if(catagory.equalsIgnoreCase("all"))
 			return productRepository.findAll();

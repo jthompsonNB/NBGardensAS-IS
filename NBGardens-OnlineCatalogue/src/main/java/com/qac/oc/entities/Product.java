@@ -25,13 +25,13 @@ public class Product {
 	private String name;
 	@NotNull
 	@Size(min=5, max=12)
-	@Column(name="name", nullable=false, length=12)
+	@Column(name="status", nullable=false, length=12)
 	private ProductStatus status;
 	@NotNull
-	@Column(name="name", nullable=false)
+	@Column(name="price", nullable=false)
 	private float price;
 	@NotNull
-	@Column(name="name", nullable=false)
+	@Column(name="stock", nullable=false)
 	private int stock;
 
 	public Product() {}
@@ -62,4 +62,14 @@ public class Product {
 	public void setPrice(float price) { this.price = price; }
 	public void setStock(int stock) { this.stock = stock; }
 	public void setStatus(ProductStatus status) { this.status = status; }
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj.getClass().equals(this.getClass())) {
+			Product product = (Product) obj;
+			if (product.productId == productId)
+				return true;
+		}
+		return false;
+	}
 }
