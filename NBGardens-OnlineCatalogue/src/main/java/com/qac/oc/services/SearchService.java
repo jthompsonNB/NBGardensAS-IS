@@ -6,16 +6,14 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import com.qac.oc.entities.Product;
+import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.repositories.ProductRepository;
 import com.qac.oc.util.Mongo;
 
 @Stateless
 public class SearchService {
-	@Inject @Mongo
-	private ProductRepository productRepository;
 	@Inject
-	private CatagoryService catagoryService;
+	private ProductRepository productRepository;
 	
 	public List<Product> findByKeyword(String term) {
 		List<Product> results = new ArrayList<>();
@@ -23,9 +21,9 @@ public class SearchService {
 		for(Product product : searchByProductDescription(term))
 			if(!results.contains(product))
 				results.add(product);
-		for(Product product : searchByProductCatagory(term))
-			if(!results.contains(product))
-				results.add(product);
+//		for(Product product : searchByProductCatagory(term))
+//			if(!results.contains(product))
+//				results.add(product);
 		return results;
 	}
 
@@ -35,9 +33,5 @@ public class SearchService {
 	
 	private List<Product> searchByProductDescription(String description) {
 		return productRepository.findByDescriptionLike(description);
-	}
-	
-	private List<Product> searchByProductCatagory(String catagory) {
-		return catagoryService.filterByCatagory(catagory);
 	}
 }

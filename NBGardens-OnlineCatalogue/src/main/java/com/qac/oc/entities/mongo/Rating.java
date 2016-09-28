@@ -1,14 +1,14 @@
-package com.qac.oc.entities;
+package com.qac.oc.entities.mongo;
 
 import java.io.Serializable;
 
 public class Rating implements Serializable{
 	private static final long serialVersionUID = 2934181567992622667L;
-
+	private long customerId;
 	private double rating;
 	private String title;
 	private String description;
-	private long customerId;
+	
 
 	public Rating() { }
 	

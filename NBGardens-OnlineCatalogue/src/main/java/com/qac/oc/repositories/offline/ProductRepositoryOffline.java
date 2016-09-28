@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import com.qac.oc.entities.Product;
+import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.repositories.ProductRepository;
 import com.qac.oc.util.TestData;
 
@@ -24,12 +24,12 @@ public class ProductRepositoryOffline implements ProductRepository {
 	}
 
 	@Override
-	public Product findById(long longValue) {
+	public Product findById(long productId) {
 		try {
-			logger.log(Level.FINE, "ProductRepositoryOffline.findById: Searching for product" + longValue);
-			return testData.getProducts().get(testData.getProducts().indexOf(new Product(longValue, null, 0, 0, null)));
+			logger.log(Level.FINE, "ProductRepositoryOffline.findById: Searching for product" + productId);
+			return testData.getProducts().get(testData.getProducts().indexOf(new Product(productId, null, null, null)));
 		} catch (ArrayIndexOutOfBoundsException exception) {
-			logger.log(Level.INFO, "ProductRepositoryOffline.findById: Searching for unknown product" + longValue);
+			logger.log(Level.INFO, "ProductRepositoryOffline.findById: Searching for unknown product" + productId);
 			return null;
 		}
 	}

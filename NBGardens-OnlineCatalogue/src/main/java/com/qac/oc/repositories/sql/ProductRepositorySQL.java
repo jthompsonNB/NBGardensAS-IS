@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 
-import com.qac.oc.entities.Product;
+import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.repositories.ProductRepository;
 
 @Stateless
