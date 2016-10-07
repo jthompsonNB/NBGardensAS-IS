@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.qac.oc.util.ProductStatus;
+import com.qac.oc.enums.ProductStatus;
 
 @Entity
 @Table(name="stockItems")

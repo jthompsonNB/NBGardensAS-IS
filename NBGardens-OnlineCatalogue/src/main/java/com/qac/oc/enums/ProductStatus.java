@@ -1,4 +1,4 @@
-package com.qac.oc.util;
+package com.qac.oc.enums;
 
 public enum ProductStatus {
 	/**

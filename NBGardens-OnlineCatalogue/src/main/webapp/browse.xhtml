@@ -17,14 +17,22 @@
 					<p>Welcome to NB Gardens online catalogue!</p>
 				</div>
 				<div class="row">
-					<ui:repeat var="product" value="#{products.list()}">
-						<div class="col-xs-6 col-lg-4">
-							<h:link target="#{products.view(product.id)}" value="#{product.name}"></h:link>
-							<p><h:outputText value="#{product.shortDescription}" /></p>
-							<p>Â£price: <h:outputText value="#{product.price}" /> -
-							   stock:   <h:outputText value="#{catalogue.left}" /></p>
-						</div>
-					</ui:repeat>
+					<h:form>
+						<h:outputText escape="false" value="No Products Found" rendered="#{products.dataModel.rowCount == 0}" />
+						<h:panelGroup rendered="#{products.dataModel.rowCount > 0}">
+							<h:outputText value="#{products.pagination.pageFirstItem + 1}..#{products.pagination.pageLastItem + 1}/#{products.pagination.itemsCount}" />&nbsp;
+							<h:commandLink action="#{products.previous}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.hasPreviousPage}" />&nbsp;
+							<h:commandLink action="#{products.next}" value="#Next #{products.pagination.pageSize}" rendered="#{products.pagination.hasNextPage}" />&nbsp;
+							<ui:repeat var="product" value="#{products.dataModel}">
+								<div class="col-xs-6 col-lg-4">
+									<h:link target="#{products.view(product.id)}" value="#{product.name}"></h:link>
+									<p><h:outputText value="#{product.shortDescription}" /></p>
+									<p>Â£price: <h:outputText value="#{product.price}" /> -
+									   stock:   <h:outputText value="#{catalogue.left}" /></p>
+								</div>
+							</ui:repeat>
+						</h:panelGroup>
+					</h:form>
 				</div>
 			</div>
 			<div id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">

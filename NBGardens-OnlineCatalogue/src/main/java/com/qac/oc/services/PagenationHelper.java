@@ -17,12 +17,44 @@ public abstract class PagenationHelper {
 	public int getPageFirstItem() {
 		return page * pageSize;
 	}
+	
+	public int getPageLastItem() {
+		int i = getPageFirstItem() + pageSize - 1;
+        int count = getItemsCount() - 1;
+        if (i > count) {
+            i = count;
+        }
+        if (i < 0) {
+            i = 0;
+        }
+        return i;
+	}
+	
+	public boolean isHasNextPage() {
+        return (page + 1) * pageSize + 1 <= getItemsCount();
+	}
+	
+	public void nextPage() {
+        if (isHasNextPage()) {
+            page++;
+        }
+    }
 
-	protected int getPageSize() {
+    public boolean isHasPreviousPage() {
+        return page > 0;
+    }
+    
+    public void previousPage() {
+        if (isHasPreviousPage()) {
+            page--;
+        }
+    }
+
+	public int getPageSize() {
 		return pageSize;
 	}
 
-	protected void setPageSize(int pageSize) {
+	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
 }

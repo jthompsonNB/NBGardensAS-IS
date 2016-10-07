@@ -12,6 +12,4 @@ public interface ProductRepository {
 	public Product findById(long longValue);
 	public List<Product> findByNameLike(String name);
 	public List<Product> findByDescriptionLike(String description);
-	public int count();
-	public List<Product> findRange(int[] range);
 }
