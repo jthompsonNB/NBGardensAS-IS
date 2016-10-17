@@ -9,9 +9,4 @@ public enum ProductStatus {
 	 * Is no longer sold
 	 */
 	DISCONTINUED, SPRING, SUMMER, AUTUM, WINTER
-/*
- * 
- */
-	
-	//
 }

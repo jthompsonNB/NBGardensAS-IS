@@ -1,5 +1,7 @@
 package com.qac.oc.services;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -12,11 +14,20 @@ public class ProductService {
 	private ProductRepository productRepository;
 
 	public Product findProductById(String id) {
-		Integer productId = Integer.parseInt(id);
-		return findProductById(productId.longValue());
+		System.out.println(">>> ID:" + id);
+		try {
+			long longId = Long.parseLong(id);
+			return findProductById(longId);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public Product findProductById(long id) {
 		return productRepository.findById(id);
+	}
+	
+	public List<Product> findAll() {
+		return productRepository.findAll();
 	}
 }

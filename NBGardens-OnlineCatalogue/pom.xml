@@ -7,6 +7,21 @@
 	<packaging>war</packaging>
 	<name>Online Catalogue</name>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- plugin versions -->
+		<ejb-plugin-version>2.3</ejb-plugin-version>
+		<war-plugin-version>2.4</war-plugin-version>
+		<ear-plugin-version>2.9</ear-plugin-version>
+		<compiler-plugin-version>3.1</compiler-plugin-version>
+		<!-- dependency versions -->
+		<javaee-api-version>7.0</javaee-api-version>
+		<!-- EJB spec version -->
+		<ejb-spec-version>3.2</ejb-spec-version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

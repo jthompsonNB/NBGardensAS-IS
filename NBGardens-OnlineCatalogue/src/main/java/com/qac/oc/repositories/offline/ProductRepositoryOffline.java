@@ -43,8 +43,7 @@ public class ProductRepositoryOffline implements ProductRepository {
 		return products;
 	}
 
-	@Override
-	@Deprecated
+	@Override @Deprecated
 	public List<Product> findByDescriptionLike(String description) {
 		return testData.getProducts();
 	}

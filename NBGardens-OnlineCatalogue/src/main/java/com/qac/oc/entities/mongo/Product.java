@@ -9,9 +9,8 @@ import javax.persistence.Id;
 @Entity
 public class Product implements Serializable {
 	private static final long serialVersionUID = -8533501934017532082L;
-
 	@Id
-	private long productId;
+	private long id;
 	private String name;
 	private String description;
 	private List<String> categories;
@@ -23,24 +22,24 @@ public class Product implements Serializable {
 
 	public Product() {}	
 	
-	public Product(long productId, String name, String description, List<String> categories) {
-		this.productId = productId;
+	public Product(long id, String name, String description, List<String> categories) {
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.categories = categories;
 	}
 
-	public Product(long productId, String name, String description, List<String> categories, double weight) {
-		this.productId = productId;
+	public Product(long id, String name, String description, List<String> categories, double weight) {
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.categories = categories;
 		this.weight = weight;
 	}
 
-	public Product(long productId, String name, String description, List<String> categories, double width,
+	public Product(long id, String name, String description, List<String> categories, double width,
 			double height) {
-		this.productId = productId;
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.categories = categories;
@@ -48,9 +47,9 @@ public class Product implements Serializable {
 		this.height = height;
 	}
 
-	public Product(long productId, String name, String description, List<String> categories, double width, double depth,
+	public Product(long id, String name, String description, List<String> categories, double width, double depth,
 			double height) {
-		this.productId = productId;
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.categories = categories;
@@ -59,9 +58,9 @@ public class Product implements Serializable {
 		this.height = height;
 	}
 
-	public Product(long productId, String name, String description, List<String> categories, double weight,
+	public Product(long id, String name, String description, List<String> categories, double weight,
 			double width, double depth, double height) {
-		this.productId = productId;
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.categories = categories;
@@ -71,9 +70,9 @@ public class Product implements Serializable {
 		this.height = height;
 	}
 
-	public Product(long productId, String name, String description, List<String> categories, double weight,
+	public Product(long id, String name, String description, List<String> categories, double weight,
 			double width, double depth, double height, List<Rating> ratings) {
-		this.productId = productId;
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.categories = categories;
@@ -84,8 +83,14 @@ public class Product implements Serializable {
 		this.ratings = ratings;
 	}
 
-	public long getProductId() {
-		return productId;
+	public Product(long id, String name, String description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
+
+	public long getId() {
+		return id;
 	}
 
 	public String getName() {
@@ -124,8 +129,8 @@ public class Product implements Serializable {
 		this.categories = categories;
 	}
 
-	public void setProductId(long productId) {
-		this.productId = productId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public void setName(String name) {
@@ -160,7 +165,7 @@ public class Product implements Serializable {
 	public boolean equals(Object obj) {
 		if(obj.getClass().equals(this.getClass())) {
 			Product product = (Product) obj;
-			if (product.productId == productId)
+			if (product.id == id)
 				return true;
 		}
 		return false;

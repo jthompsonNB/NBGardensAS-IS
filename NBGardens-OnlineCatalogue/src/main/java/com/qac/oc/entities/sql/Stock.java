@@ -13,7 +13,7 @@ import com.qac.oc.enums.ProductStatus;
 @Table(name="stockItems")
 public class Stock {
 	@Id
-	private long stockId;
+	private long id;
 	@NotNull
 	@Size(min=3, max=225)
 	@Column(name="name", nullable=false, length=225)
@@ -28,4 +28,34 @@ public class Stock {
 	@NotNull
 	@Column(name="stock", nullable=false)
 	private int stockLevel;
+	public long getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public ProductStatus getStatus() {
+		return status;
+	}
+	public float getPrice() {
+		return price;
+	}
+	public int getStockLevel() {
+		return stockLevel;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setStatus(ProductStatus status) {
+		this.status = status;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	public void setStockLevel(int stockLevel) {
+		this.stockLevel = stockLevel;
+	}
 }

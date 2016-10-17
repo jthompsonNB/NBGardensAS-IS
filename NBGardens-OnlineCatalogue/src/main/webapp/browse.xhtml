@@ -9,28 +9,28 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			<div class="col-xs-12 col-sm-9">
 				<p class="pull-left visible-xs">
-					<button class="btn btn-primary btn-xs" type="button"
-						data-toggle="offcanvas">Quick Links</button>
+					<button class="btn btn-primary btn-xs" type="button" data-toggle="offcanvas">Quick Links</button>
 				</p>
 				<div class="jumbotron">
 					<h1>Catalogue</h1>
 					<p>Welcome to NB Gardens online catalogue!</p>
 				</div>
-				<div class="row">
+				<div class="container">
 					<h:form>
 						<h:outputText escape="false" value="No Products Found" rendered="#{products.dataModel.rowCount == 0}" />
 						<h:panelGroup rendered="#{products.dataModel.rowCount > 0}">
-							<h:outputText value="#{products.pagination.pageFirstItem + 1}..#{products.pagination.pageLastItem + 1}/#{products.pagination.itemsCount}" />&nbsp;
-							<h:commandLink action="#{products.previous}" value="Previous #{products.pagination.pageSize}" rendered="#{products.pagination.hasPreviousPage}" />&nbsp;
-							<h:commandLink action="#{products.next}" value="#Next #{products.pagination.pageSize}" rendered="#{products.pagination.hasNextPage}" />&nbsp;
-							<ui:repeat var="product" value="#{products.dataModel}">
-								<div class="col-xs-6 col-lg-4">
-									<h:link target="#{products.view(product.id)}" value="#{product.name}"></h:link>
-									<p><h:outputText value="#{product.shortDescription}" /></p>
-									<p>Â£price: <h:outputText value="#{product.price}" /> -
-									   stock:   <h:outputText value="#{catalogue.left}" /></p>
-								</div>
-							</ui:repeat>
+							<h:commandLink action="#{products.previous}" value="Previous" rendered="#{products.pagination.hasPreviousPage}" />
+							<h:outputText value="#{products.pagination.pageFirstItem + 1}..#{products.pagination.pageLastItem + 1}/#{products.pagination.itemsCount}" />
+							<h:commandLink action="#{products.next}" value="Next" rendered="#{products.pagination.hasNextPage}" />
+							<div class="row">
+								<ui:repeat var="product" value="#{products.dataModel}">
+									<div class="col-sm-6 col-lg-4">
+										<h:commandLink action="#{products.view(product.id)}" value="#{product.name}" />
+										<p><h:outputText value="#{product.description}" /></p>
+									</div>
+								</ui:repeat>
+								
+							</div>
 						</h:panelGroup>
 					</h:form>
 				</div>

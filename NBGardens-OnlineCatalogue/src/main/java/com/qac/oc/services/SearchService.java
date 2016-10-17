@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.repositories.ProductRepository;
-import com.qac.oc.util.Mongo;
 
 @Stateless
 public class SearchService {

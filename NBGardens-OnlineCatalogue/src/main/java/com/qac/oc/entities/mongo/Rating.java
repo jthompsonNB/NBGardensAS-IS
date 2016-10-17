@@ -9,7 +9,6 @@ public class Rating implements Serializable{
 	private String title;
 	private String description;
 	
-
 	public Rating() { }
 	
 	public Rating(double rating, String title, String description, long customerId) {

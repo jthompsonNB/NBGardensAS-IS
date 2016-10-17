@@ -11,7 +11,6 @@ import com.qac.oc.repositories.ProductRepository;
 @Stateless
 @Alternative
 public class ProductRepositorySQL implements ProductRepository {
-
 	@Override
 	public List<Product> findAll() {
 		// TODO Auto-generated method stub

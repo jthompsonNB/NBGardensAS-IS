@@ -1,16 +1,22 @@
-
+<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/main.xhtml">
+	<meta charset="utf-8" />
+	<ui:define name="pageTitle"><h:outputText value="#{selected.product.name}" /></ui:define>
+<ui:define name="maincontent">
 <div class="row row-offcanvas row-offcanvas-left">
     <div class="col-xs-12 col-sm-9">
         <p class="pull-left visible-xs">
             <button class="btn btn-primary btn-xs" type="button" data-toggle="offcanvas">
-                @Messages("navigation.toggle")
             </button>
         </p>
         <div class="jumbotron">
-            <h1>@product.name</h1>
-            <p>@product.description</p>
+            <h1><h:outputText value="#{selected.product.name}" /> </h1>
+            <p></p>
             <br>
-            <p>@Messages("product.price"): £@product.price - @product.stockLevel @Messages("catalogue.left")!</p>
+            <p></p>
         </div>
     </div>
     <div id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
@@ -20,3 +26,5 @@
         </div>
     </div>
 </div>
+</ui:define>
+</ui:composition>

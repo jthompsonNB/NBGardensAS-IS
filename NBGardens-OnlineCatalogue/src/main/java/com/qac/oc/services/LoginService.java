@@ -16,5 +16,4 @@ public class LoginService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

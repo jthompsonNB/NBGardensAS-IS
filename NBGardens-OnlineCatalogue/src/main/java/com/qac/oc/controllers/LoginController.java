@@ -17,6 +17,7 @@ public class LoginController {
 	private String password;
 	
 	public String login() {
+		//DoThings
 		if(!email.isEmpty() && !password.isEmpty())
 			if(loginService.validLogin())
 				currentUser.setCustomer(loginService.loginUser(email, password));
