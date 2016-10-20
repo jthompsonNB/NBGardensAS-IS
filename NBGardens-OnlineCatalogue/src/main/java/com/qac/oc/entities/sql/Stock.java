@@ -23,11 +23,12 @@ public class Stock {
 	@Column(name="status", nullable=false, length=12)
 	private ProductStatus status;
 	@NotNull
-	@Column(name="price", nullable=false)
+	@Column(name="sale_price", nullable=false)
 	private float price;
 	@NotNull
 	@Column(name="stock", nullable=false)
 	private int stockLevel;
+
 	public long getId() {
 		return id;
 	}

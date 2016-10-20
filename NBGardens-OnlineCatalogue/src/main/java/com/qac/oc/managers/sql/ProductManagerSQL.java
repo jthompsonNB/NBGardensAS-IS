@@ -1,4 +1,4 @@
-package com.qac.oc.repositories.sql;
+package com.qac.oc.managers.sql;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 
 import com.qac.oc.entities.mongo.Product;
-import com.qac.oc.repositories.ProductRepository;
+import com.qac.oc.managers.ProductMarager;
 
 @Stateless
 @Alternative
-public class ProductRepositorySQL implements ProductRepository {
+public class ProductManagerSQL implements ProductMarager {
 	@Override
 	public List<Product> findAll() {
 		// TODO Auto-generated method stub

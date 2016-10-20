@@ -12,7 +12,7 @@ import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.services.ProductService;
 import com.qac.oc.util.PagenationHelper;
 
-@Named("products")
+@Named("browse")
 @SessionScoped
 public class BrowseController implements Serializable {
 	private static final long serialVersionUID = -1995906091201060046L;

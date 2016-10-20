@@ -7,12 +7,12 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.qac.oc.entities.mongo.Product;
-import com.qac.oc.repositories.ProductRepository;
+import com.qac.oc.managers.ProductMarager;
 
 @Stateless
 public class SearchService {
 	@Inject
-	private ProductRepository productRepository;
+	private ProductMarager productRepository;
 	
 	public List<Product> findByKeyword(String term) {
 		List<Product> results = new ArrayList<>();

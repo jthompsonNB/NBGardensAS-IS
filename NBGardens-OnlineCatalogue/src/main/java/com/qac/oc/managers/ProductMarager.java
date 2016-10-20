@@ -1,11 +1,11 @@
-package com.qac.oc.repositories;
+package com.qac.oc.managers;
 
 import java.util.List;
 import java.util.logging.Logger;
 
 import com.qac.oc.entities.mongo.Product;
 
-public interface ProductRepository {
+public interface ProductMarager {
 	static Logger logger = Logger.getLogger("ProductReository");
 	public List<Product> findAll();
 	public Product findById(long longValue);

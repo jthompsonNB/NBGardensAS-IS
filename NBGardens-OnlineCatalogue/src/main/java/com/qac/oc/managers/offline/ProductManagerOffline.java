@@ -1,4 +1,4 @@
-package com.qac.oc.repositories.offline;
+package com.qac.oc.managers.offline;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +9,12 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.oc.entities.mongo.Product;
-import com.qac.oc.repositories.ProductRepository;
+import com.qac.oc.managers.ProductMarager;
 import com.qac.oc.util.TestData;
 
 @Stateless
 @Default
-public class ProductRepositoryOffline implements ProductRepository {
+public class ProductManagerOffline implements ProductMarager {
 	@Inject
 	private TestData testData;
 	

@@ -17,19 +17,18 @@
 				</div>
 				<div class="container">
 					<h:form>
-						<h:outputText escape="false" value="No Products Found" rendered="#{products.dataModel.rowCount == 0}" />
-						<h:panelGroup rendered="#{products.dataModel.rowCount > 0}">
-							<h:commandLink action="#{products.previous}" value="Previous" rendered="#{products.pagination.hasPreviousPage}" />
-							<h:outputText value="#{products.pagination.pageFirstItem + 1}..#{products.pagination.pageLastItem + 1}/#{products.pagination.itemsCount}" />
-							<h:commandLink action="#{products.next}" value="Next" rendered="#{products.pagination.hasNextPage}" />
+						<h:outputText escape="false" value="No Products Found" rendered="#{browse.dataModel.rowCount == 0}" />
+						<h:panelGroup rendered="#{browse.dataModel.rowCount > 0}">
+							<h:commandLink action="#{browse.previous}" value="Previous" rendered="#{browse.pagination.hasPreviousPage}" />
+							<h:outputText value="#{browse.pagination.pageFirstItem + 1}..#{browse.pagination.pageLastItem + 1}/#{browse.pagination.itemsCount}" />
+							<h:commandLink action="#{browse.next}" value="Next" rendered="#{browse.pagination.hasNextPage}" />
 							<div class="row">
-								<ui:repeat var="product" value="#{products.dataModel}">
+								<ui:repeat var="product" value="#{browse.dataModel}">
 									<div class="col-sm-6 col-lg-4">
 										<h:commandLink action="#{products.view(product.id)}" value="#{product.name}" />
 										<p><h:outputText value="#{product.description}" /></p>
 									</div>
 								</ui:repeat>
-								
 							</div>
 						</h:panelGroup>
 					</h:form>

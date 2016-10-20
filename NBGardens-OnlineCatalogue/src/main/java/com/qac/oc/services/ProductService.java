@@ -6,12 +6,12 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.qac.oc.entities.mongo.Product;
-import com.qac.oc.repositories.ProductRepository;
+import com.qac.oc.managers.ProductMarager;
 
 @Stateless
 public class ProductService {
 	@Inject
-	private ProductRepository productRepository;
+	private ProductMarager productRepository;
 
 	public Product findProductById(String id) {
 		System.out.println(">>> ID:" + id);
