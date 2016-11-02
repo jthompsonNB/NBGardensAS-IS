@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.managers.ProductMarager;
+import com.qac.oc.util.ProductItem;
 
 @Stateless
 public class ProductService {
@@ -14,7 +15,6 @@ public class ProductService {
 	private ProductMarager productRepository;
 
 	public Product findProductById(String id) {
-		System.out.println(">>> ID:" + id);
 		try {
 			long longId = Long.parseLong(id);
 			return findProductById(longId);
@@ -29,5 +29,10 @@ public class ProductService {
 	
 	public List<Product> findAll() {
 		return productRepository.findAll();
+	}
+
+	public ProductItem getProductItem(long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -2,11 +2,11 @@ package com.qac.oc.util;
 
 import javax.faces.model.DataModel;
 
-public abstract class PagenationHelper {
+public abstract class PaginationHelper {
 	private int pageSize;
 	private int page;
 	
-	public PagenationHelper(int pageSize) {
+	public PaginationHelper(int pageSize) {
 		this.pageSize = pageSize;
 	}
 	

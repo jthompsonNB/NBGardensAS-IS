@@ -1,4 +1,4 @@
-package com.qac.oc.controllers;
+package com.qac.oc.controllers.session;
 
 import java.io.Serializable;
 
@@ -15,11 +15,11 @@ public class CurrentUser implements Serializable{
 		return (customer==null) ? false : true;
 	}
 	
-	Customer getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
-	void setCustomer(Customer customer) {
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 }

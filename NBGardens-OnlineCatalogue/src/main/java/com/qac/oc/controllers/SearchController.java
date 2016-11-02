@@ -1,52 +1,39 @@
 package com.qac.oc.controllers;
 
-import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.qac.oc.services.ProductService;
+import com.qac.oc.controllers.session.SelectedProduct;
+import com.qac.oc.services.SearchService;
+import com.qac.oc.util.ProductItem;
 
-//@Path("/search")
 @Named("search")
 @RequestScoped
 public class SearchController {
 	@Inject
-	private ProductService productService;
+	private SearchService searchService;
 	@Inject 
 	private SelectedProduct selectedProduct;
+	@Inject
+	private SearchResultsController searchResults;
 	private String term;
 	
 	public String search(){
-		System.out.println(">>> Searching for " + term);
-		try {
-			selectedProduct.setProduct(productService.findProductById(term));
-			System.out.println(">>> Worked!");
-			return "details";
-		} catch (Exception e) {
-			System.out.println(">>> woops!");
-			return "browse";
-		}
+		List<ProductItem> results = searchService.searchBy(term);
+		if (results != null)
+			if (results.size() == 1) {
+				selectedProduct.setProduct(results.get(0));
+				return "details";
+			} else {
+				searchResults.setResults(results);
+				return "searchResults";
+			}
+		return "browse";
 	}
 
-	public String getTerm() {
-		return term;
-	}
-
-	public void setTerm(String term) {
-		this.term = term;
-	}
+	public String getTerm() { return term; }
+	public void setTerm(String term) { this.term = term; }
 }
-//	@Inject
-//	private SearchService searchService;
-//	
-//	@GET
-//	@Path("/{term}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<Product> search(@PathParam("term") String term) {
-//		return searchService.findByKeyword(term);
-//	}
-//}
-//	
-//}

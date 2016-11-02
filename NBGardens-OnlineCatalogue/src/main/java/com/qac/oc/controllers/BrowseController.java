@@ -1,8 +1,6 @@
 package com.qac.oc.controllers;
 
-import java.io.Serializable;
-
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
@@ -10,25 +8,19 @@ import javax.inject.Named;
 
 import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.services.ProductService;
-import com.qac.oc.util.PagenationHelper;
+import com.qac.oc.util.PaginationHelper;
 
 @Named("browse")
-@SessionScoped
-public class BrowseController implements Serializable {
-	private static final long serialVersionUID = -1995906091201060046L;
+@ConversationScoped
+public class BrowseController {
 	@Inject
 	private ProductService productService;
-	@Inject
-	private SelectedProduct product;
-	private PagenationHelper pagenationHelper;
-	@SuppressWarnings("unused")
-	private int selectedItemIndex;
-	@SuppressWarnings("unused")
+	private PaginationHelper pagenationHelper;
 	private DataModel<Product> dataModel = null;
 	
-	public PagenationHelper getPagination() {
+	public PaginationHelper getPagination() {
 		if (pagenationHelper == null) {
-			pagenationHelper = new PagenationHelper(9) {
+			pagenationHelper = new PaginationHelper(9) {
 				
 				@Override
 				public int getItemsCount() {
@@ -64,7 +56,6 @@ public class BrowseController implements Serializable {
 		return "browse";
 	}
 	
-	@SuppressWarnings("unchecked")
 	public DataModel<Product> getDataModel() {
 		return (DataModel<Product>) getPagination().createPageDataModel();
 	}

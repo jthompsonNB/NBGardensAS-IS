@@ -1,7 +1,5 @@
 package com.qac.oc.controllers;
 
-import java.util.List;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -11,6 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.qac.oc.controllers.session.SelectedProduct;
 import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.services.ProductService;
 
@@ -23,9 +22,8 @@ public class ProductController {
 	@Inject
 	private ProductService productService;
 	
-	@Deprecated
 	public String view(long id) {
-		product.setProduct(productService.findProductById(id));
+		product.setProduct(productService.getProductItem(id));
 		return "product";
 	}
 	
