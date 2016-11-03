@@ -25,13 +25,8 @@ public class ProductManagerOffline implements ProductManager {
 
 	@Override
 	public Product findById(long productId) {
-		try {
-			logger.log(Level.FINE, "ProductRepositoryOffline.findById: Searching for product" + productId);
-			return testData.getProducts().get(testData.getProducts().indexOf(new Product(productId, null, null, null)));
-		} catch (ArrayIndexOutOfBoundsException exception) {
-			logger.log(Level.INFO, "ProductRepositoryOffline.findById: Searching for unknown product" + productId);
-			return null;
-		}
+		//TODO
+		return testData.getProducts().get(testData.getProducts().indexOf(new Product(productId, null, null, null)));
 	}
 
 	@Override
@@ -43,8 +38,9 @@ public class ProductManagerOffline implements ProductManager {
 		return products;
 	}
 
-	@Override @Deprecated
+	@Override 
 	public List<Product> findByDescriptionLike(String description) {
+		//TODO
 		return testData.getProducts();
 	}
 }

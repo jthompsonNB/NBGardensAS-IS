@@ -17,7 +17,8 @@ import javax.jms.Session;
 
 import org.jboss.ejb3.annotation.ResourceAdapter;
 
-import com.qac.oc.entities.sql.Customer;
+import static com.qac.util.messenging.MessageDestinations.new_customer_for_catalogue_queue;
+import com.qac.util.messages.Customer;
 
 @Named("notifyIMS")
 @Stateless
@@ -36,7 +37,7 @@ public class NotifyIMS {
 		try {
 			init();
 			session = connection.createSession(true, AUTO_ACKNOWLEDGE);
-			queue = session.createQueue("new_customer_for_catalogue_queue");
+			queue = session.createQueue(new_customer_for_catalogue_queue.toString());
 			producer = session.createProducer(queue);
 			producer.setDeliveryMode(PERSISTENT);
 			ObjectMessage message = session.createObjectMessage(customer);

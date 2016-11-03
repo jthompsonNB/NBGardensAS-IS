@@ -37,7 +37,55 @@ public class Customer implements Serializable {
 		return id;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
 	public String getPassword() {
 		return password;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public LocalDate getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public void setDateAdded(LocalDate dateAdded) {
+		this.dateAdded = dateAdded;
 	}
 }
