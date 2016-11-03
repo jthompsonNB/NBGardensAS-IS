@@ -4,5 +4,6 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
 	bean-discovery-mode="annotated">
 	<alternatives>
+		<class>com.qac.oc.managers.sql.CustomerManagerSQL</class>
 	</alternatives>
 </beans>

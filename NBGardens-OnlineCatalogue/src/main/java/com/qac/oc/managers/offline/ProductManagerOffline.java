@@ -9,12 +9,12 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qac.oc.entities.mongo.Product;
-import com.qac.oc.managers.ProductMarager;
+import com.qac.oc.managers.ProductManager;
 import com.qac.oc.util.TestData;
 
 @Stateless
 @Default
-public class ProductManagerOffline implements ProductMarager {
+public class ProductManagerOffline implements ProductManager {
 	@Inject
 	private TestData testData;
 	

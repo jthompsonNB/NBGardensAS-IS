@@ -19,8 +19,8 @@ public class LoginController {
 	
 	public String login() {
 		if(!email.isEmpty() && !password.isEmpty())
-			if(loginService.validLogin())
-				currentUser.setCustomer(loginService.loginUser(email, password));
+			if(loginService.validLogin(email, password))
+				currentUser.setCustomer(loginService.loginUser(email));
 		return "nbgardens";
 	}
 	

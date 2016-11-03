@@ -18,18 +18,19 @@ public class RegistrationController {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String password;
 	private String addressLine1;
 	private String addressLine2;
 	private String town;
 	private String postcode;
 	
 	public String register() {
-		if(!firstName.isEmpty() && !lastName.isEmpty() && !addressLine1.isEmpty() && !town.isEmpty() && !postcode.isEmpty() && !email.isEmpty())
+		if(!firstName.isEmpty() && !lastName.isEmpty() && !addressLine1.isEmpty() && !town.isEmpty() && !postcode.isEmpty() && !email.isEmpty() && !password.isEmpty())
 			try {
 				if(addressLine2.isEmpty())
-					currentUser.setCustomer(registrationService.register(firstName, lastName, email, addressLine1, town, postcode));
+					currentUser.setCustomer(registrationService.register(firstName, lastName, email, password, addressLine1, town, postcode));
 				else
-					currentUser.setCustomer(registrationService.register(firstName, lastName, email, addressLine1, addressLine2, town, postcode));
+					currentUser.setCustomer(registrationService.register(firstName, lastName, email, password, addressLine1, addressLine2, town, postcode));
 				return "nbgardens";
 			} catch (RegistrationError re) {
 				System.out.println(re.getMessage());

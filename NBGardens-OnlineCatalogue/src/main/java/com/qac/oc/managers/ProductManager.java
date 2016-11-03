@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 import com.qac.oc.entities.mongo.Product;
 
-public interface ProductMarager {
+public interface ProductManager {
 	static Logger logger = Logger.getLogger("ProductReository");
 	public List<Product> findAll();
 	public Product findById(long longValue);

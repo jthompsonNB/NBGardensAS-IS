@@ -6,11 +6,11 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 
 import com.qac.oc.entities.mongo.Product;
-import com.qac.oc.managers.ProductMarager;
+import com.qac.oc.managers.ProductManager;
 
 @Stateless
 @Alternative
-public class ProductManagerSQL implements ProductMarager {
+public class ProductManagerSQL implements ProductManager {
 	@Override
 	public List<Product> findAll() {
 		// TODO Auto-generated method stub

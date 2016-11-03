@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import com.qac.oc.controllers.session.SelectedProduct;
 import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.services.ProductService;
+import com.qac.oc.util.ProductItem;
 
 @Named("products")
 @Path("/products")
@@ -23,8 +24,12 @@ public class ProductController {
 	private ProductService productService;
 	
 	public String view(long id) {
-		product.setProduct(productService.getProductItem(id));
-		return "product";
+		ProductItem item = productService.getProductItem(id);
+		if (item != null) {
+			product.setProduct(item);
+			return "product";
+		}
+		return "browse";
 	}
 	
 	@GET
