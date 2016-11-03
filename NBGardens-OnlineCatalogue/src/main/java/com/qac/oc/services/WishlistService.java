@@ -1,24 +1,51 @@
 package com.qac.oc.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+import com.qac.oc.entities.sql.Stock;
+import com.qac.oc.managers.ProductManager;
+import com.qac.oc.managers.StockManager;
+import com.qac.oc.managers.WishlistManager;
 import com.qac.oc.util.ProductItem;
 
+@Stateless
 public class WishlistService {
+	@Inject
+	private WishlistManager wishlistManager;
+	@Inject
+	private ProductManager productManager;
+	@Inject
+	private ProductService productService;
+	@Inject
+	private StockManager stockManager;
 
 	public List<ProductItem> getWishlist(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		List<ProductItem> wishlist = new ArrayList<>();
+		wishlistManager.findByCustomerId(id).forEach(stock->{
+			wishlist.add(productService.getProductItem(productManager.findById(stock.getId()), stock));	
+		});
+		return wishlist;
+	}
+	
+	public void addToWishlist(long customerId, long productId) {
+		List<Stock> wishlist = wishlistManager.findByCustomerId(customerId);
+		for(Stock stock : wishlist)
+			if(stock.getId() == productId)
+				return;
+		wishlist.add(stockManager.findById(productId));
+		wishlistManager.updateWishList(wishlist);
 	}
 
-	public void addToWishlist(long id, long id2) {
-		// TODO Auto-generated method stub
-		
+	public List<ProductItem> removeFromWishlist(long customerId, long productId) {
+		List<Stock> wishlist = wishlistManager.findByCustomerId(customerId);
+		for(Stock stock : wishlist)
+			if(stock.getId() == productId)
+				wishlist.remove(stock);
+		wishlistManager.updateWishList(wishlist);
+		return getWishlist(customerId);
 	}
-
-	public List<ProductItem> removeFromWishlist(long id, long id2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

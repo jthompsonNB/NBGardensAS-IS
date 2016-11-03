@@ -6,13 +6,17 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import com.qac.oc.entities.mongo.Product;
-import com.qac.oc.managers.ProductMarager;
+import com.qac.oc.entities.sql.Stock;
+import com.qac.oc.managers.ProductManager;
+import com.qac.oc.managers.StockManager;
 import com.qac.oc.util.ProductItem;
 
 @Stateless
 public class ProductService {
 	@Inject
-	private ProductMarager productRepository;
+	private ProductManager productManager;
+	@Inject
+	private StockManager stockManager;
 
 	public Product findProductById(String id) {
 		try {
@@ -24,15 +28,27 @@ public class ProductService {
 	}
 
 	public Product findProductById(long id) {
-		return productRepository.findById(id);
+		return productManager.findById(id);
 	}
 	
 	public List<Product> findAll() {
-		return productRepository.findAll();
+		return productManager.findAll();
 	}
 
 	public ProductItem getProductItem(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return getProductItem(productManager.findById(id), stockManager.findById(id));
+	}
+	
+	public ProductItem getProductItem(Product product, long id) {
+		return  getProductItem(product, stockManager.findById(id));
+	}
+	
+	public ProductItem getProductItem(Product product, Stock stock) {
+		ProductItem productItem = new ProductItem(stock.getId());
+		if (product!=null)
+			productItem.addProductInfo(product.getName(), product.getDescription(), product.getHeight(), product.getWidth(), product.getDepth(), product.getWeight(), product.getCategories(), product.getRatings());
+		if(stock!=null)
+			productItem.addStockInfo(stock.getStockLevel(), stock.getStatus(), stock.getPrice());
+		return productItem;
 	}
 }
