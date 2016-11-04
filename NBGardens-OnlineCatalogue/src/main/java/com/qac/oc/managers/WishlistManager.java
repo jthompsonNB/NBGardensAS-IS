@@ -5,7 +5,6 @@ import java.util.List;
 import com.qac.oc.entities.sql.Stock;
 
 public interface WishlistManager {
-
 	List<Stock> findByCustomerId(long id);
-
-	void updateWishList(List<Stock> wishlist);}
+	void updateWishList(long customerId, List<Stock> wishlist);
+}

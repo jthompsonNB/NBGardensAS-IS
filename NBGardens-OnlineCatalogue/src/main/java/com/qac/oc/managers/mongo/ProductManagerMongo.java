@@ -1,4 +1,4 @@
-package com.qac.oc.managers.sql;
+package com.qac.oc.managers.mongo;
 
 import java.util.List;
 
@@ -10,7 +10,8 @@ import com.qac.oc.managers.ProductManager;
 
 @Stateless
 @Alternative
-public class ProductManagerSQL implements ProductManager {
+public class ProductManagerMongo implements ProductManager {
+
 	@Override
 	public List<Product> findAll() {
 		// TODO Auto-generated method stub

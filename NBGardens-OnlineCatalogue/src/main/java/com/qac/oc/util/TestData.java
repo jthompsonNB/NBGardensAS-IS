@@ -9,6 +9,8 @@ import javax.ejb.Startup;
 
 import com.qac.oc.entities.mongo.Product;
 import com.qac.oc.entities.mongo.Rating;
+import com.qac.oc.entities.sql.Customer;
+import com.qac.oc.entities.sql.Stock;
 
 @Startup
 @Singleton
@@ -45,4 +47,19 @@ public class TestData {
 	public List<Product> getProducts() { return products; }
 
 	public void setProducts(List<Product> products) { this.products = products; }
+
+	public List<Customer> getCustomers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setCustomers(List<Customer> customers) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<Stock> getStock() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

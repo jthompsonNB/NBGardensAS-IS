@@ -2,7 +2,6 @@ package com.qac.oc.managers.offline;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
@@ -25,8 +24,10 @@ public class ProductManagerOffline implements ProductManager {
 
 	@Override
 	public Product findById(long productId) {
-		//TODO
-		return testData.getProducts().get(testData.getProducts().indexOf(new Product(productId, null, null, null)));
+		for(Product product : testData.getProducts())
+			if(product.getId() == productId)
+				return product;
+		return null;
 	}
 
 	@Override
@@ -40,7 +41,10 @@ public class ProductManagerOffline implements ProductManager {
 
 	@Override 
 	public List<Product> findByDescriptionLike(String description) {
-		//TODO
-		return testData.getProducts();
+		List<Product> products = new ArrayList<>();
+		for(Product product : testData.getProducts())
+			if (product.getDescription().toLowerCase().contains(description.toLowerCase()))
+				products.add(product);
+		return products;
 	}
 }

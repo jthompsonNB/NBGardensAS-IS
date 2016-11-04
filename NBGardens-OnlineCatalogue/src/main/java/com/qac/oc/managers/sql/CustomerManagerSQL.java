@@ -10,7 +10,6 @@ import com.qac.oc.managers.CustomerManager;
 @Stateless
 public class CustomerManagerSQL implements CustomerManager {
 	
-	
 	@Override
 	public Customer findByEmail(String email) {
 		// TODO Auto-generated method stub

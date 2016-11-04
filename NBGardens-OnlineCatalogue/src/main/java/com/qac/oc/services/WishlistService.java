@@ -37,7 +37,7 @@ public class WishlistService {
 			if(stock.getId() == productId)
 				return;
 		wishlist.add(stockManager.findById(productId));
-		wishlistManager.updateWishList(wishlist);
+		wishlistManager.updateWishList(customerId, wishlist);
 	}
 
 	public List<ProductItem> removeFromWishlist(long customerId, long productId) {
@@ -45,7 +45,7 @@ public class WishlistService {
 		for(Stock stock : wishlist)
 			if(stock.getId() == productId)
 				wishlist.remove(stock);
-		wishlistManager.updateWishList(wishlist);
+		wishlistManager.updateWishList(customerId, wishlist);
 		return getWishlist(customerId);
 	}
 }

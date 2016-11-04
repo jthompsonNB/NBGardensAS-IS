@@ -26,7 +26,7 @@ public class SearchController {
 		if (results != null)
 			if (results.size() == 1) {
 				selectedProduct.setProduct(results.get(0));
-				return "details";
+				return "product";
 			} else {
 				searchResults.setResults(results);
 				return "searchResults";
