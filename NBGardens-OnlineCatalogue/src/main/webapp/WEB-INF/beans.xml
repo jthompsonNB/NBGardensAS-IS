@@ -4,6 +4,11 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
 	bean-discovery-mode="annotated">
 	<alternatives>
-		<class>com.qac.oc.managers.sql.CustomerManagerSQL</class>
+		<!-- Entity Managers for Mongo DB -->
+		<!-- <class>com.qac.oc.managers.mongo.ProductManagerMongo</class> -->
+		<!-- Entity Managers for SQL -->
+		<!-- <class>com.qac.oc.managers.sql.CustomerManagerSQL</class> -->
+		<!-- <class>com.qac.oc.managers.sql.StockManagerSQL</class> -->
+		<!-- <class>com.qac.oc.managers.sql.WishlistManagerSQL</class> -->
 	</alternatives>
 </beans>
