@@ -1,9 +1,93 @@
-<ui:composition xmlns="https://www.w3.org/1999/xhtml"
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	template="templates/main.xhtml">
-	<meta charset="utf-8" />
-	<ui:define name="pagetitle">Test</ui:define>
-	<ui:define name="maincontent">Test</ui:define>
-</ui:composition>
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description"
+	content="NB Gardens Online Catalogue. Your One-Stop-Shop for high-end Garden Gnomes!" />
+<meta name="author" content="James Thompson" />
+<title><ui:insert name="pageTitle" /></title>
+<link rel="stylesheet" media="screen" href="css/bootstrap.min.css" />
+<link rel="stylesheet" media="screen" href="css/main.css" />
+<link rel="stylesheet" media="screen" href="css/home.css" />
+</head>
+<body>
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h3 class="masthead-brand">NBGardens</h3>
+						<nav>
+							<ul class="nav masthead-nav">
+								<li><a class="active" href="nbgardens.xhtml">home</a></li>
+								<li><a class="active" href="browse.xhtml">catalogue</a></li>
+								<li><h:link styleClass="active" target="wishlist.xhtml"
+										rendered="#{user.loggedIn}" value="wishlist" /></li>
+								<li><h:link styleClass="active" target="resister.xhtml"
+										rendered="#{!user.loggedIn}" value="register" /></li>
+							</ul>
+							<h:form class="masthead-form">
+								<h:inputText value="#{search.term}" class="form-control">
+									<f:passThroughAttribute name="type" value="text" />
+									<f:passThroughAttribute name="placeholder" value="Search..." />
+									<f:passThroughAttribute name="alt" value="Search" />
+								</h:inputText>
+								<h:commandButton action="#{search.search}" value="Seach"
+									class="btn btn-success">
+									<f:passThroughAttribute name="style" value="display: none;" />
+								</h:commandButton>
+							</h:form>
+						</nav>
+					</div>
+				</div>
+				<div class="inner cover">
+					<h1 class="cover-heading">Welcome To NBGardens Online
+						Catalogue</h1>
+					<p class="lead">NBGardens is the UK's leading distributer of
+						high quality garden Gnomes.</p>
+					<p class="lead">We believe there's a Gnome for every occasion
+						so if you do too, then you Gnome your in the right place.</p>
+					<p class="lead">
+						<h:form class="masthead-form" rendered="#{!user.loggedIn}">
+							<div class="form-group">
+								<h:inputText class="form-control" value="#{login.email}">
+									<f:passThroughAttribute name="type" value="email" />
+									<f:passThroughAttribute name="placeholder" value="email..." />
+									<f:passThroughAttribute name="alt" value="Enter Email" />
+									<f:passThroughAttribute name="required" value="required" />
+								</h:inputText>
+								<h:inputText class="form-control" value="#{login.password}">
+									<f:passThroughAttribute name="type" value="password" />
+									<f:passThroughAttribute name="placeholder" value="password..." />
+									<f:passThroughAttribute name="alt" value="Enter Password" />
+									<f:passThroughAttribute name="required" value="required" />
+								</h:inputText>
+								<h:commandButton class="btn btn-success" action="#{login.login}"
+									value="Sign In" />
+							</div>
+						</h:form>
+						<h:form class="masthead-form" rendered="#{user.loggedIn}">
+							<h:commandButton class="btn btn-success" action="#{login.logout}"
+								value="Sign Out" />
+						</h:form>
+					</p>
+				</div>
+				<div class="mastfoot">
+					<div class="inner">
+						<p>© 2016 QA Consulting.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" />
+	<script src="js/bootstrap.min.js" />
+</body>
+</html>

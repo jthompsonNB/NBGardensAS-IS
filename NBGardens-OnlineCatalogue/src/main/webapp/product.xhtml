@@ -4,6 +4,6 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	template="templates/main.xhtml">
 	<meta charset="utf-8" />
-	<ui:define name="pagetitle">Test</ui:define>
+	<ui:define name="pagetitle"><h:outputText value="#{selected.product.name}"/></ui:define>
 	<ui:define name="maincontent">Test</ui:define>
 </ui:composition>
