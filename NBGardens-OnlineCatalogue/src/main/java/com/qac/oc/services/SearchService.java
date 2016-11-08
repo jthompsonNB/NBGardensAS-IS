@@ -6,7 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import com.qac.oc.entities.mongo.Product;
+import com.qac.oc.entities.Product;
 import com.qac.oc.managers.ProductManager;
 import com.qac.oc.util.ProductItem;
 

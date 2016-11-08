@@ -15,14 +15,14 @@ public class RegistrationController {
 	private RegistrationService registrationService;
 	@Inject
 	private CurrentUser currentUser;
-	private String firstName;
-	private String lastName;
-	private String email;
-	private String password;
-	private String addressLine1;
-	private String addressLine2;
-	private String town;
-	private String postcode;
+	private String firstName = "";
+	private String lastName = "";
+	private String email = "";
+	private String password = "";
+	private String addressLine1 = "";
+	private String addressLine2 = "";
+	private String town = "";
+	private String postcode = "";
 	
 	public String register() {
 		if(!firstName.isEmpty() && !lastName.isEmpty() && !addressLine1.isEmpty() && !town.isEmpty() && !postcode.isEmpty() && !email.isEmpty() && !password.isEmpty())

@@ -6,8 +6,8 @@ import java.time.ZoneId;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import com.qac.oc.entities.sql.Address;
-import com.qac.oc.entities.sql.Customer;
+import com.qac.oc.entities.Address;
+import com.qac.oc.entities.Customer;
 import com.qac.oc.managers.CustomerManager;
 import com.qac.oc.messenging.CustomerConverter;
 import com.qac.oc.messenging.NotifyIMS;

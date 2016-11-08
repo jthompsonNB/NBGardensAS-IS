@@ -1,22 +1,25 @@
 package com.qac.oc.controllers;
 
+import java.io.Serializable;
+
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.qac.oc.entities.mongo.Product;
+import com.qac.oc.entities.Product;
 import com.qac.oc.services.ProductService;
 import com.qac.oc.util.PaginationHelper;
+import com.qac.oc.util.ProductItem;
 
 @Named("browse")
 @ConversationScoped
-public class BrowseController {
+public class BrowseController implements Serializable {
 	@Inject
 	private ProductService productService;
 	private PaginationHelper pagenationHelper;
-	private DataModel<Product> dataModel = null;
+	private DataModel<ProductItem> products = null;
 	
 	public PaginationHelper getPagination() {
 		if (pagenationHelper == null) {
@@ -24,15 +27,15 @@ public class BrowseController {
 				
 				@Override
 				public int getItemsCount() {
-					return productService.findAll().size();
+					return productService.findAllActive().size();
 				}
 				
 				@Override
-				public DataModel<Product> createPageDataModel() {
+				public DataModel<ProductItem> createPageDataModel() {
 					try {
-						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+						return new ListDataModel<ProductItem>(productService.findAllActive().subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
-						return new ListDataModel<Product>(productService.findAll().subList(getPageFirstItem(), getItemsCount()));
+						return new ListDataModel<ProductItem>(productService.findAllActive().subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 			};
@@ -41,7 +44,7 @@ public class BrowseController {
 	}
 
 	private void recreateModel() {
-		dataModel = null;
+		products = null;
 	}
 	
 	public String next() {
@@ -56,7 +59,7 @@ public class BrowseController {
 		return "browse";
 	}
 	
-	public DataModel<Product> getDataModel() {
-		return (DataModel<Product>) getPagination().createPageDataModel();
+	public DataModel<ProductItem> getProducts() {
+		return (DataModel<ProductItem>) getPagination().createPageDataModel();
 	}
 }

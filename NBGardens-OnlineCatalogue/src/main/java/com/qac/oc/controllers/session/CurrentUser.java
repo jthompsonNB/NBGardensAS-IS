@@ -2,14 +2,15 @@ package com.qac.oc.controllers.session;
 
 import java.io.Serializable;
 
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
-import com.qac.oc.entities.sql.Customer;
+import com.qac.oc.entities.Customer;
 
+@Named("user")
 @SessionScoped
 public class CurrentUser implements Serializable{
-	private static final long serialVersionUID = -7329313706265108418L;
-	private Customer customer;
+	private Customer customer = null;
 
 	public boolean isLoggedIn() {
 		return (customer==null) ? false : true;

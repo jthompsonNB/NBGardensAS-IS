@@ -20,7 +20,8 @@ public class WishlistController {
 	private List<ProductItem> wishlist;
 
 	public void addToWishlist(long id) {
-		wishlistService.addToWishlist(currentUser.getCustomer().getId(), id);
+		if(currentUser.isLoggedIn())
+			wishlistService.addToWishlist(currentUser.getCustomer().getId(), id);
 	}
 	
 	public String removeItem(long id) {

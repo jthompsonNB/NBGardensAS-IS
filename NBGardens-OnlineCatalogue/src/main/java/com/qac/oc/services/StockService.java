@@ -3,7 +3,7 @@ package com.qac.oc.services;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import com.qac.oc.entities.sql.Stock;
+import com.qac.oc.entities.Stock;
 import com.qac.oc.managers.StockManager;
 
 @Stateless

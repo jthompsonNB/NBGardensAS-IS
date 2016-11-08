@@ -6,7 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import com.qac.oc.entities.sql.Stock;
+import com.qac.oc.entities.Stock;
 import com.qac.oc.managers.ProductManager;
 import com.qac.oc.managers.StockManager;
 import com.qac.oc.managers.WishlistManager;

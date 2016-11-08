@@ -1,5 +1,6 @@
 package com.qac.oc.controllers;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
@@ -12,10 +13,10 @@ import com.qac.oc.util.ProductItem;
 
 @Named("searchResults")
 @SessionScoped
-public class SearchResultsController {
+public class SearchResultsController implements Serializable {
 	private PaginationHelper pagination = null;
-	private List<ProductItem> results;
-	private DataModel<ProductItem> dataModel = null;
+	private List<ProductItem> searchResults;
+	private DataModel<ProductItem> results = null;
 	
 	public PaginationHelper getPagination() {
 		if (pagination == null) {
@@ -23,15 +24,15 @@ public class SearchResultsController {
 				
 				@Override
 				public int getItemsCount() {
-					return results.size();
+					return searchResults.size();
 				}
 				
 				@Override
 				public DataModel<ProductItem> createPageDataModel() {
 					try {
-						return new ListDataModel<ProductItem>(results.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
+						return new ListDataModel<ProductItem>(searchResults.subList(getPageFirstItem(), getPageFirstItem() + getPageSize()));
 					} catch (Exception e) {
-						return new ListDataModel<ProductItem>(results.subList(getPageFirstItem(), getItemsCount()));
+						return new ListDataModel<ProductItem>(searchResults.subList(getPageFirstItem(), getItemsCount()));
 					}
 				}
 			};
@@ -40,7 +41,7 @@ public class SearchResultsController {
 	}
 
 	private void recreateModel() {
-		dataModel = null;
+		results = null;
 	}
 	
 	public String next() {
@@ -55,11 +56,11 @@ public class SearchResultsController {
 		return "results";
 	}
 	
-	public DataModel<ProductItem> getDataModel() {
+	public DataModel<ProductItem> getResults() {
 		return (DataModel<ProductItem>) getPagination().createPageDataModel();
 	}
 
-	public void setResults(List<ProductItem> results) {
-		this.results = results;
+	public void setResults(List<ProductItem> searchResults) {
+		this.searchResults = searchResults;
 	}
 }

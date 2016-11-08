@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.qac.oc.controllers.session.SelectedProduct;
-import com.qac.oc.entities.mongo.Product;
+import com.qac.oc.entities.Product;
 import com.qac.oc.services.ProductService;
 import com.qac.oc.util.ProductItem;
 

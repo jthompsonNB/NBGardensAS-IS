@@ -2,7 +2,7 @@ package com.qac.oc.util;
 
 import java.util.List;
 
-import com.qac.oc.entities.mongo.Rating;
+import com.qac.oc.entities.Rating;
 import com.qac.oc.enums.ProductStatus;
 
 public class ProductItem {

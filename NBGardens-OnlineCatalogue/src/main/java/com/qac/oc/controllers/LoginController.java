@@ -1,6 +1,6 @@
 package com.qac.oc.controllers;
 
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -14,13 +14,15 @@ public class LoginController {
 	private CurrentUser currentUser;
 	@Inject
 	private LoginService loginService;
-	private String email;
-	private String password;
+	private String email = "";
+	private String password = "";
 	
 	public String login() {
 		if(!email.isEmpty() && !password.isEmpty())
 			if(loginService.validLogin(email, password))
 				currentUser.setCustomer(loginService.loginUser(email));
+			else
+				password = "";
 		return "nbgardens";
 	}
 	

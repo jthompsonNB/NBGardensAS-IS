@@ -1,12 +1,13 @@
 package com.qac.oc.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import com.qac.oc.entities.mongo.Product;
-import com.qac.oc.entities.sql.Stock;
+import com.qac.oc.entities.Product;
+import com.qac.oc.entities.Stock;
 import com.qac.oc.managers.ProductManager;
 import com.qac.oc.managers.StockManager;
 import com.qac.oc.util.ProductItem;
@@ -39,6 +40,10 @@ public class ProductService {
 		return getProductItem(productManager.findById(id), stockManager.findById(id));
 	}
 	
+	public ProductItem getProductItem(long id, Stock stock) {
+		return getProductItem(productManager.findById(id), stock);
+	}
+	
 	public ProductItem getProductItem(Product product, long id) {
 		return  getProductItem(product, stockManager.findById(id));
 	}
@@ -50,5 +55,13 @@ public class ProductService {
 		if(stock!=null)
 			productItem.addStockInfo(stock.getStockLevel(), stock.getStatus(), stock.getPrice());
 		return productItem;
+	}
+
+	public List<ProductItem> findAllActive() {
+		List<ProductItem> items = new ArrayList<ProductItem>();
+		stockManager.findByActive().forEach(stock->{
+			items.add(getProductItem(stock.getId(), stock));
+		});;
+		return items;
 	}
 }
