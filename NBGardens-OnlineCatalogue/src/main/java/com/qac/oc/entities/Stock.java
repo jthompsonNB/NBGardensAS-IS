@@ -1,10 +1,11 @@
-package com.qac.oc.entities.sql;
+package com.qac.oc.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,6 +14,7 @@ import com.qac.oc.enums.ProductStatus;
 
 @Entity
 @Table(name="stockItems")
+@NamedQuery(name="findExcludingDiscontinued", query="SELECT s FROM stockItems s WHERE NOT(s.status = discontinued AND s.stock < 1")
 public class Stock {
 	@Id
 	@Column(nullable=false, unique=true)

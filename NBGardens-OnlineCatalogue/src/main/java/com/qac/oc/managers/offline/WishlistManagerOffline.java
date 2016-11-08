@@ -6,8 +6,8 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import com.qac.oc.entities.sql.Customer;
-import com.qac.oc.entities.sql.Stock;
+import com.qac.oc.entities.Customer;
+import com.qac.oc.entities.Stock;
 import com.qac.oc.managers.WishlistManager;
 import com.qac.oc.util.TestData;
 

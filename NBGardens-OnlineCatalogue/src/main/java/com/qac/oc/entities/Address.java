@@ -1,4 +1,4 @@
-package com.qac.oc.entities.sql;
+package com.qac.oc.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

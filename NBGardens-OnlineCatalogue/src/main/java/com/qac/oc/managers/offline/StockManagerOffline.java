@@ -1,10 +1,14 @@
 package com.qac.oc.managers.offline;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import com.qac.oc.entities.sql.Stock;
+import com.qac.oc.entities.Stock;
+import com.qac.oc.enums.ProductStatus;
 import com.qac.oc.managers.StockManager;
 import com.qac.oc.util.TestData;
 
@@ -20,5 +24,15 @@ public class StockManagerOffline implements StockManager {
 			if(stock.getId() == id)
 				return stock;
 		return null;
+	}
+
+	@Override
+	public List<Stock> findByActive() {
+		List<Stock> stock = new ArrayList<Stock>();
+		testData.getStock().forEach(s->{
+			if(s.getStatus().equals(ProductStatus.ACTIVE) || s.getStockLevel()>0)
+				stock.add(s);
+		});
+		return stock;
 	}
 }

@@ -1,7 +1,10 @@
 package com.qac.oc.managers;
 
-import com.qac.oc.entities.sql.Stock;
+import java.util.List;
+
+import com.qac.oc.entities.Stock;
 
 public interface StockManager {
-	Stock findById(long id);
+	public Stock findById(long id);
+	public List<Stock> findByActive();
 }

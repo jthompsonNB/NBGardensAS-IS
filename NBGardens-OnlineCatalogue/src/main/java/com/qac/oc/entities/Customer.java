@@ -1,4 +1,4 @@
-package com.qac.oc.entities.sql;
+package com.qac.oc.entities;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,12 +12,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="customers")
+@NamedQuery(name="findByEmail", query="SELECT c FROM customers c WHERE c.email=:email")
 public class Customer {
 	@Id
 	@Column(name="id", nullable=false, unique=true)
@@ -80,6 +82,7 @@ public class Customer {
 	public LocalDate getDateAdded() { return dateAdded; }
 	public List<Stock> getWishlist() { return wishlist; }
 
+	public void setId(int id) { this.id = id; }
 	public void setFirstName(String firstName) { this.firstName = firstName; }
 	public void setLastname(String lastname) { this.lastname = lastname; }
 	public void setEmail(String email) { this.email = email; }

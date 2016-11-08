@@ -1,4 +1,4 @@
-package com.qac.oc.entities.mongo;
+package com.qac.oc.entities;
 
 import java.io.Serializable;
 

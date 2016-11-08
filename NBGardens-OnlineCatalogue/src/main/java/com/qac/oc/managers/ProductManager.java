@@ -3,7 +3,7 @@ package com.qac.oc.managers;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.qac.oc.entities.mongo.Product;
+import com.qac.oc.entities.Product;
 
 public interface ProductManager {
 	static Logger logger = Logger.getLogger("ProductReository");

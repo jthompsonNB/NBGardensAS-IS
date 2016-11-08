@@ -1,4 +1,4 @@
-package com.qac.oc.entities.mongo;
+package com.qac.oc.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -42,8 +42,7 @@ public class Product implements Serializable {
 		ratings = new ArrayList<Rating>();
 	}
 
-	public Product(long id, String name, String description, List<String> categories, double width,
-			double height) {
+	public Product(long id, String name, String description, List<String> categories, double width, double height) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -53,8 +52,7 @@ public class Product implements Serializable {
 		ratings = new ArrayList<Rating>();
 	}
 
-	public Product(long id, String name, String description, List<String> categories, double width, double depth,
-			double height) {
+	public Product(long id, String name, String description, List<String> categories, double width, double depth, double height) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -65,8 +63,7 @@ public class Product implements Serializable {
 		ratings = new ArrayList<Rating>();
 	}
 
-	public Product(long id, String name, String description, List<String> categories, double weight,
-			double width, double depth, double height) {
+	public Product(long id, String name, String description, List<String> categories, double weight, double width, double depth, double height) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -78,8 +75,7 @@ public class Product implements Serializable {
 		ratings = new ArrayList<Rating>();
 	}
 
-	public Product(long id, String name, String description, List<String> categories, double weight,
-			double width, double depth, double height, List<Rating> ratings) {
+	public Product(long id, String name, String description, List<String> categories, double weight, double width, double depth, double height, Rating rating) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -88,7 +84,8 @@ public class Product implements Serializable {
 		this.width = width;
 		this.depth = depth;
 		this.height = height;
-		this.ratings = ratings;
+		ratings = new ArrayList<>();
+		ratings.add(rating);
 	}
 
 	public Product(long id, String name, String description) {
