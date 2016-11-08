@@ -4,6 +4,67 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	template="templates/main.xhtml">
 	<meta charset="utf-8" />
-	<ui:define name="pagetitle">Test</ui:define>
-	<ui:define name="maincontent">Test</ui:define>
+	<ui:define name="pagetitle">Register</ui:define>
+	<ui:define name="maincontent">
+		<div class="container">
+			<h:form class="form-signin">
+				<h2 class="form-signin-heading">Sign up to create Wishlists</h2>
+				<h5>Personal Details</h5>
+				<label for="firstName" class="sr-only">First Name*</label>
+				<h:inputText class="form-control" value="#{register.firstName}">
+					<f:passThroughAttribute name="placeholder" value="First Name" />
+					<f:passThroughAttribute name="required" value="required" />
+					<f:passThroughAttribute name="id" value="firstName" />
+				</h:inputText>
+				<label for="lastName" class="sr-only">Last Name*</label>
+				<h:inputText class="form-control" value="#{register.lastName}">
+					<f:passThroughAttribute name="placeholder" value="Last Name" />
+					<f:passThroughAttribute name="required" value="required" />
+					<f:passThroughAttribute name="id" value="lastName" />
+				</h:inputText>
+				<label for="email" class="sr-only">Email*</label>
+				<h:inputText class="form-control" value="#{register.email}">
+					<f:passThroughAttribute name="type" value="email" />
+					<f:passThroughAttribute name="placeholder" value="email" />
+					<f:passThroughAttribute name="alt" value="Enter Email" />
+					<f:passThroughAttribute name="required" value="required" />
+					<f:passThroughAttribute name="id" value="email" />
+				</h:inputText>
+				<label for="password" class="sr-only">Password*</label>
+				<h:inputText class="form-control" value="#{register.password}">
+					<f:passThroughAttribute name="type" value="password" />
+					<f:passThroughAttribute name="placeholder" value="password" />
+					<f:passThroughAttribute name="alt" value="Enter Password" />
+					<f:passThroughAttribute name="required" value="required" />
+					<f:passThroughAttribute name="id" value="password" />
+				</h:inputText>
+				<br/>
+				<h5>Address</h5>
+				<label for="firstAddress" class="sr-only">Address Line 1*</label>
+				<h:inputText class="form-control" value="#{register.addressLine1}">
+					<f:passThroughAttribute name="placeholder" value="line1" />
+					<f:passThroughAttribute name="required" value="required" />
+					<f:passThroughAttribute name="id" value="firstAddress" />
+				</h:inputText>
+				<label for="lastAddress" class="sr-only">Address Line 2</label>
+				<h:inputText class="form-control" value="#{register.addressLine2}">
+					<f:passThroughAttribute name="placeholder" value="line 2" />
+					<f:passThroughAttribute name="id" value="lastAddress" />
+				</h:inputText>
+				<label for="town" class="sr-only">Town*</label>
+				<h:inputText class="form-control" value="#{register.town}">
+					<f:passThroughAttribute name="placeholder" value="town" />
+					<f:passThroughAttribute name="required" value="required" />
+					<f:passThroughAttribute name="id" value="town" />
+				</h:inputText>
+				<label for="postcode" class="sr-only">Postcode*</label>
+				<h:inputText class="form-control" value="#{register.postcode}">
+					<f:passThroughAttribute name="placeholder" value="postcode" />
+					<f:passThroughAttribute name="required" value="required" />
+					<f:passThroughAttribute name="id" value="postcode" />
+				</h:inputText>
+				<h:commandButton class="btn btn-lg btn-primary btn-block" value="Register" action="#{register.register}" />
+			</h:form>
+		</div>
+	</ui:define>
 </ui:composition>

@@ -27,10 +27,8 @@
 							<ul class="nav masthead-nav">
 								<li><a class="active" href="nbgardens.xhtml">home</a></li>
 								<li><a class="active" href="browse.xhtml">catalogue</a></li>
-								<li><h:link styleClass="active" target="wishlist.xhtml"
-										rendered="#{user.loggedIn}" value="wishlist" /></li>
-								<li><h:link styleClass="active" target="resister.xhtml"
-										rendered="#{!user.loggedIn}" value="register" /></li>
+								<li><h:outputLink styleClass="navbar-brand" rendered="#{user.loggedIn}" value="wishlist.xhtml">wishlist</h:outputLink></li>
+								<li><h:outputLink styleClass="navbar-brand" rendered="#{!user.loggedIn}" value="register.xhtml">register</h:outputLink></li>
 							</ul>
 							<h:form class="masthead-form">
 								<h:inputText value="#{search.term}" class="form-control">

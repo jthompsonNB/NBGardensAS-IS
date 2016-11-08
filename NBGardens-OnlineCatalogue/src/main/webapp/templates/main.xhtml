@@ -32,8 +32,8 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li><a class="navbar-brand" href="nbgardens.xhtml">home</a></li>
 					<li><a class="navbar-brand" href="browse.xhtml">catalogue</a></li>
-					<li><h:link styleClass="navbar-brand" target="wishlist.xhtml" rendered="#{user.loggedIn}" value="wishlist" /></li>
-					<li><h:link styleClass="navbar-brand" target="resister.xhtml" rendered="#{!user.loggedIn}" value="register" /></li>
+					<li><h:outputLink styleClass="navbar-brand" rendered="#{user.loggedIn}" value="wishlist.xhtml">wishlist</h:outputLink></li>
+					<li><h:outputLink styleClass="navbar-brand" rendered="#{!user.loggedIn}" value="register.xhtml">register</h:outputLink></li>
 				</ul>
 				<h:form class="navbar-form navbar-left">
 					<h:inputText value="#{search.term}" class="form-control">
