@@ -8,7 +8,7 @@ import com.qac.util.messages.Customer;
 @Stateless
 public class CustomerConverter {
 		
-	public Customer convert(com.qac.oc.entities.sql.Customer customer) {
+	public Customer convert(com.qac.oc.entities.Customer customer) {
 		Address address;
 		if (customer.getAddress().getAddressLine2()==null)
 			address = new Address(customer.getAddress().getAddressLine1(), customer.getAddress().getTown(), customer.getAddress().getPostcode());

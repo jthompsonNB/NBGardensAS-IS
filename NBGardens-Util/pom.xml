@@ -4,6 +4,7 @@
 	<groupId>com.qac</groupId>
 	<artifactId>NBGardens-Util</artifactId>
 	<version>0.1.1</version>
+	<packaging>jar</packaging>
 	<name>NBGardens Utility Package</name>
 
 	<properties>
