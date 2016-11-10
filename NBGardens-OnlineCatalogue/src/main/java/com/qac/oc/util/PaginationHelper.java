@@ -20,12 +20,10 @@ public abstract class PaginationHelper {
 	public int getPageLastItem() {
 		int i = getPageFirstItem() + pageSize - 1;
         int count = getItemsCount() - 1;
-        if (i > count) {
+        if (i > count)
             i = count;
-        }
-        if (i < 0) {
+        if (i < 0)
             i = 0;
-        }
         return i;
 	}
 	
@@ -34,9 +32,8 @@ public abstract class PaginationHelper {
 	}
 	
 	public void nextPage() {
-		if (isHasNextPage()) {
+		if (isHasNextPage())
             page++;
-        }
     }
 
     public boolean isHasPreviousPage() {
@@ -44,9 +41,8 @@ public abstract class PaginationHelper {
     }
     
     public void previousPage() {
-        if (isHasPreviousPage()) {
+        if (isHasPreviousPage())
             page--;
-        }
     }
 
 	public int getPageSize() {

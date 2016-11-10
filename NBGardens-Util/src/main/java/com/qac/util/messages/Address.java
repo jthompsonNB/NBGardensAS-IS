@@ -1,6 +1,9 @@
 package com.qac.util.messages;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
+	private static final long serialVersionUID = 6355431455236778519L;
 	private String addressLine1;
 	private String addressLine2;
 	private String town;

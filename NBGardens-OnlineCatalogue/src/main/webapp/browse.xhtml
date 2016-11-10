@@ -6,12 +6,12 @@
 	<meta charset="utf-8" />
 	<ui:define name="pagetitle">Catalogue</ui:define>
 	<ui:define name="maincontent">
-		<div class="jumbotron">
+		<header class="jumbotron">
 			<h1>Catalogue</h1>
 			<p>Welcome to the NBGarden Online Catalogue!</p>
 			<p>Find a product you like? Add it to your wishlist so that its easier to find when your filling out your next order!</p>
-		</div>
-		<div class="row">
+		</header>
+		<article class="row">
 			<h:form>
 				<h:outputText escape="false" value="No Products Found" rendered="#{browse.products.rowCount==0}" />
 				<h:panelGroup rendered="#{browse.products.rowCount>0}">
@@ -20,11 +20,11 @@
 					<h:commandLink value="Next" action="#{browse.next}" rendered="#{browse.pagination.hasNextPage}" />
 					<div>
 						<ui:repeat var="product" value="#{browse.products}">
-							<div class="col-xs-12 col-md-4">
+							<section class="col-xs-12 col-md-4">
 								<h:commandLink action="#{products.select(product.id)}" value="#{product.name}"/>
 								<p><h:outputText value="#{product.description}" /></p>
 								<h:button action="#{wishlist.addToWishlist(product.id)}" value="Add to Wishlist" />
-							</div>
+							</section>
 						</ui:repeat>
 					</div>
 					<h:commandLink value="Previous" action="#{browse.previous}" rendered="#{browse.pagination.hasPreviousPage}" />
@@ -32,6 +32,6 @@
 					<h:commandLink value="Next" action="#{browse.next}" rendered="#{browse.pagination.hasNextPage}" />
 				</h:panelGroup>
 			</h:form>
-		</div>
+		</article>
 	</ui:define>
 </ui:composition>
