@@ -61,6 +61,8 @@ public class SearchResultsController implements Serializable {
 	}
 
 	public void setResults(List<ProductItem> searchResults) {
+		pagination = null;
+		results = null;
 		this.searchResults = searchResults;
 	}
 }

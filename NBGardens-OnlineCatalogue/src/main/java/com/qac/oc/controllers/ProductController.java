@@ -15,7 +15,7 @@ import com.qac.oc.services.ProductService;
 import com.qac.oc.util.ProductItem;
 
 @Named("products")
-@Path("/products")
+//@Path("/products")
 @RequestScoped
 public class ProductController {
 	@Inject
@@ -23,7 +23,7 @@ public class ProductController {
 	@Inject
 	private ProductService productService;
 	
-	public String view(long id) {
+	public String select(long id) {
 		ProductItem item = productService.getProductItem(id);
 		if (item != null) {
 			product.setProduct(item);
@@ -32,10 +32,10 @@ public class ProductController {
 		return "browse";
 	}
 	
-	@GET
-	@Path("/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Product select(@PathParam("id") String id) {
-		return productService.findProductById(id);
-	}
+//	@GET
+//	@Path("/{id}")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Product select(@PathParam("id") String id) {
+//		return productService.findProductById(id);
+//	}
 }

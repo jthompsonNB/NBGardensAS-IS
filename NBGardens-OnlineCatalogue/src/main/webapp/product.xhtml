@@ -4,6 +4,50 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	template="templates/main.xhtml">
 	<meta charset="utf-8" />
-	<ui:define name="pagetitle"><h:outputText value="#{selected.product.name}"/></ui:define>
-	<ui:define name="maincontent">Test</ui:define>
+	<ui:define name="pagetitle"><h:outputText value="#{selected.product.name}" /></ui:define>
+	<ui:define name="maincontent">
+		<div class="blog-header">
+			<h1 class="blog-title"><h:outputText value="#{selected.product.name}" /></h1>
+			<p class="lead blog-description">&#163;<h:outputText value="#{selected.product.price}" /></p>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 blog-main">
+				<div class="blog-post">
+					<p class="blog-post-meta">
+						<ui:repeat var="catagory" value="#{selected.product.categories}">
+							<h:outputText value="#{catagory}" />,
+						</ui:repeat>
+					</p>
+					<p><h:outputText value="#{selected.product.description}" /></p>
+					<blockquote>
+						<h3>Ratings:</h3>
+						<ui:repeat var="rating" value="#{selected.product.ratings}">
+							<h4><h:outputText value="#{rating.title}" />: <h:outputText value="#{rating.rating}" />/5</h4>
+							<p><h:outputText value="#{rating.description}" /></p>
+						</ui:repeat>
+					</blockquote>
+				</div>
+			</div>
+			<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+				<div class="sidebar-module sidebar-module-inset">
+					<h4>specifications</h4>
+					<ol class="list-unstyled">
+						<li>height: <h:outputText value="#{selected.product.height}" />cm</li>
+						<li>width: <h:outputText value="#{selected.product.width}" />cm</li>
+						<li>depth: <h:outputText value="#{selected.product.height}" />cm</li>
+						<li>weigh: <h:outputText value="#{selected.product.height}" />kg</li>
+					</ol>
+					<br/>
+					<ol class="list-unstyled">
+						<li>price: &#163;<h:outputText value="#{selected.product.price}" /></li>
+						<li>In Stock: <h:outputText value="#{selected.product.stockLevel}" /></li>
+						<li>Current Status: <h:outputText value="#{selected.product.status}" /></li>
+					</ol>
+					<h:form>
+						<h:commandButton class="btn btn-primary btn-block" value="Add to Wishlist" action="#{wishlist.addToWishlist(selected.product.id)}" rendered="#{user.loggedIn}" />
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
 </ui:composition>
