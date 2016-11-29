@@ -17,6 +17,12 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * This represents the data associated with a customer.
+ * 
+ * @author James Thompson
+ *
+ */
 @Entity
 @Table(name="customers")
 @NamedQuery(name="findByEmail", query="SELECT c FROM customers c WHERE c.email=:email")

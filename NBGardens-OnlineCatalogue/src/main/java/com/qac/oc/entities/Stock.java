@@ -12,6 +12,12 @@ import javax.validation.constraints.Size;
 
 import com.qac.oc.enums.ProductStatus;
 
+/**
+ * This represents the data associated with a stock line.
+ * 
+ * @author James Thompson
+ *
+ */
 @Entity
 @Table(name="stockItems")
 @NamedQuery(name="findExcludingDiscontinued", query="SELECT s FROM stockItems s WHERE NOT(s.status = discontinued AND s.stock < 1")

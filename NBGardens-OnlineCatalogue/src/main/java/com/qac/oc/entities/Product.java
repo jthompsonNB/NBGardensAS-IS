@@ -7,6 +7,12 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * This represents the data associated with a product.
+ * 
+ * @author James Thompson
+ *
+ */
 @Entity
 public class Product implements Serializable {
 	private static final long serialVersionUID = -6586263742271776754L;

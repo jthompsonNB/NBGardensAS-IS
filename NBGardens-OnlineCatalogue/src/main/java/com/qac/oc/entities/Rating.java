@@ -2,6 +2,12 @@ package com.qac.oc.entities;
 
 import java.io.Serializable;
 
+/**
+ * This represents the data associated with a rating.
+ * 
+ * @author James Thompson
+ *
+ */
 public class Rating implements Serializable{
 	private static final long serialVersionUID = 2934181567992622667L;
 	private long customerId;
