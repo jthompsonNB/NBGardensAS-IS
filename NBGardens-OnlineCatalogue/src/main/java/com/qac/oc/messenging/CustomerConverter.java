@@ -5,9 +5,21 @@ import javax.ejb.Stateless;
 import com.qac.util.messages.Address;
 import com.qac.util.messages.Customer;
 
+/**
+ * Used to handle the conversion of one customer object into another
+ * 
+ * @author James Thompson
+ *
+ */
 @Stateless
 public class CustomerConverter {
 		
+	/**
+	 * Converts a Customer Entity into a Customer message.
+	 * 
+	 * @param customer
+	 * @return
+	 */
 	public Customer convert(com.qac.oc.entities.Customer customer) {
 		Address address;
 		if (customer.getAddress().getAddressLine2()==null)

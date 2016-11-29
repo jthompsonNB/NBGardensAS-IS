@@ -11,6 +11,12 @@ import javax.jms.JMSRuntimeException;
 import com.qac.util.messages.Customer;
 import com.qac.util.messenging.MessageDestinations;
 
+/**
+ * This is used to send messages to the IMS system.
+ * 
+ * @author James Thompson
+ *
+ */
 @Named("notifyIMS")
 @Stateless
 public class NotifyIMS {
@@ -18,6 +24,11 @@ public class NotifyIMS {
 //	@Inject
 //	private JMSContext context;
 	
+	/**
+	 * This is used to send a customer to the IMS to be added to the catalogue mailing list.
+	 * 
+	 * @param customer
+	 */
 	public void newCustomerForCatalogue(Customer customer) {
 		try{
 			logger.info("preparing to send IMS a new customer to add to catalogue mailing list.");
