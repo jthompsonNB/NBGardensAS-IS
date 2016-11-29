@@ -25,14 +25,19 @@ public class WishlistService {
 
 	public List<ProductItem> getWishlist(long id) {
 		List<ProductItem> wishlist = new ArrayList<>();
-		wishlistManager.findByCustomerId(id).forEach(stock->{
-			wishlist.add(productService.getProductItem(productManager.findById(stock.getId()), stock));	
-		});
+		try{
+			wishlistManager.findByCustomerId(id).forEach(stock->{
+				wishlist.add(productService.getProductItem(productManager.findById(stock.getId()), stock));	
+			});
+		} finally {}
 		return wishlist;
 	}
 	
 	public void addToWishlist(long customerId, long productId) {
 		List<Stock> wishlist = wishlistManager.findByCustomerId(customerId);
+		if(wishlist == null) {
+			wishlist = new ArrayList<Stock>();
+		}
 		for(Stock stock : wishlist)
 			if(stock.getId() == productId)
 				return;
@@ -40,12 +45,11 @@ public class WishlistService {
 		wishlistManager.updateWishList(customerId, wishlist);
 	}
 
-	public List<ProductItem> removeFromWishlist(long customerId, long productId) {
-		List<Stock> wishlist = wishlistManager.findByCustomerId(customerId);
-		for(Stock stock : wishlist)
-			if(stock.getId() == productId)
-				wishlist.remove(stock);
+	public void removeFromWishlist(long customerId, long productId) {
+		List<Stock> wishlist = new ArrayList<>();
+		for(Stock stock : wishlistManager.findByCustomerId(customerId))
+			if(stock.getId() != productId)
+				wishlist.add(stock);
 		wishlistManager.updateWishList(customerId, wishlist);
-		return getWishlist(customerId);
 	}
 }

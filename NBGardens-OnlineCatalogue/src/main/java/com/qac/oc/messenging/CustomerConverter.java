@@ -14,6 +14,6 @@ public class CustomerConverter {
 			address = new Address(customer.getAddress().getAddressLine1(), customer.getAddress().getTown(), customer.getAddress().getPostcode());
 		else 
 			address = new Address(customer.getAddress().getAddressLine1(), customer.getAddress().getAddressLine2(), customer.getAddress().getTown(), customer.getAddress().getPostcode());
-		return new Customer(customer.getFirstName(), customer.getLastname(), customer.getEmail(), address);
+		return new Customer(customer.getFirstName(), customer.getLastName(), customer.getEmail(), address);
 	}
 }

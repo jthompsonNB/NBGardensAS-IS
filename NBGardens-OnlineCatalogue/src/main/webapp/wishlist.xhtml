@@ -4,6 +4,36 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	template="templates/main.xhtml">
 	<meta charset="utf-8" />
-	<ui:define name="pagetitle">Test</ui:define>
-	<ui:define name="maincontent">Test</ui:define>
+	<ui:define name="pagetitle">Wishlist</ui:define>
+	<ui:define name="maincontent">
+		<div class="col-sm-9 col-md-10 main">
+			<h1><h:outputText value="#{user.customer.firstName}" />'s wishlist</h1>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>name</th>
+							<th>price</th>
+							<th>status</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<h:form>
+							<ui:repeat var="product" value="#{wishlist.wishlist}">
+								<tr>
+									<th><h:commandLink action="#{products.select(product.id)}"><h:outputText value="#{product.id}" /></h:commandLink></th>
+									<th><h:commandLink action="#{products.select(product.id)}"><h:outputText value="#{product.name}" /></h:commandLink></th>
+									<th>&#163;<h:outputText value="#{product.price}" /></th>
+									<th><h:outputText value="#{product.status}" /></th>
+									<th><h:commandButton value="Remove From Wishlist" action="#{wishlist.removeItem(product.id)}" class="btn btn-primary btn-block" /></th>
+								</tr>
+							</ui:repeat>
+						</h:form>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</ui:define>
 </ui:composition>

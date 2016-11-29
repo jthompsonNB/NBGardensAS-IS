@@ -23,7 +23,7 @@
 							<section class="col-xs-12 col-md-4">
 								<h:commandLink action="#{products.select(product.id)}" value="#{product.name}"/>
 								<p><h:outputText value="#{product.description}" /></p>
-								<h:button class="btn btn-primary btn-block" action="#{wishlist.addToWishlist(product.id)}" value="Add to Wishlist" rendered="#{user.loggedIn}" />
+								<h:commandButton class="btn btn-primary btn-block" action="#{wishlist.addToWishlist(product.id)}" value="Add to Wishlist" rendered="#{user.loggedIn}" />
 							</section>
 						</ui:repeat>
 					</div>

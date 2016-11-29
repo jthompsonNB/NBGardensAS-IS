@@ -8,6 +8,11 @@ import com.qac.oc.controllers.session.CurrentUser;
 import com.qac.oc.services.RegistrationService;
 import com.qac.oc.util.RegistrationError;
 
+/**
+ * This controller handles the registration of new users on the website.
+ * 
+ * @author James Thompson
+ */
 @Named("register")
 @RequestScoped
 public class RegistrationController {
@@ -24,6 +29,11 @@ public class RegistrationController {
 	private String town = "";
 	private String postcode = "";
 	
+	/**
+	 * Register the user
+	 * 
+	 * @return Returns nbgardens if the user can register or register if the user cant.
+	 */
 	public String register() {
 		if(!firstName.isEmpty() && !lastName.isEmpty() && !addressLine1.isEmpty() && !town.isEmpty() && !postcode.isEmpty() && !email.isEmpty() && !password.isEmpty())
 			try {

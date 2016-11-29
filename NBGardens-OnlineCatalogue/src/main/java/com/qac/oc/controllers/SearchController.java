@@ -10,6 +10,12 @@ import com.qac.oc.controllers.session.SelectedProduct;
 import com.qac.oc.services.SearchService;
 import com.qac.oc.util.ProductItem;
 
+/**
+ * This controller handles the searching of products on the Online Catalogue.
+ * 
+ * @author James Thompson
+ *
+ */
 @Named("search")
 @RequestScoped
 public class SearchController {
@@ -21,6 +27,11 @@ public class SearchController {
 	private SearchResultsController searchResults;
 	private String term;
 	
+	/**
+	 * Handles the searching of the catalogue using the term set via setTerm()
+	 * 
+	 * @return returns searchResults for the list of results or product if a single product was found. returns browse if none were found
+	 */
 	public String search(){
 		List<ProductItem> results = searchService.searchBy(term);
 		if (results != null)

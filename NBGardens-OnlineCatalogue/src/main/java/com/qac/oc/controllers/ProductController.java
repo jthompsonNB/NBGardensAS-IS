@@ -14,8 +14,13 @@ import com.qac.oc.entities.Product;
 import com.qac.oc.services.ProductService;
 import com.qac.oc.util.ProductItem;
 
+/**
+ * This controller is used to select products for viewing.
+ * 
+ * @author James Thompson
+ */
 @Named("products")
-//@Path("/products")
+@Path("/products")
 @RequestScoped
 public class ProductController {
 	@Inject
@@ -23,6 +28,12 @@ public class ProductController {
 	@Inject
 	private ProductService productService;
 	
+	/**
+	 * This is used by JSF pages to select a product to display and then redirect the user to the product page.
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public String select(long id) {
 		ProductItem item = productService.getProductItem(id);
 		if (item != null) {
@@ -32,10 +43,16 @@ public class ProductController {
 		return "browse";
 	}
 	
-//	@GET
-//	@Path("/{id}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Product select(@PathParam("id") String id) {
-//		return productService.findProductById(id);
-//	}
+	/**
+	 * This is used by external applications to access the product catalogue through the url: "nbgardens/ocapi/products/{id}"
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@GET
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Product select(@PathParam("id") String id) {
+		return productService.findProductById(id);
+	}
 }
