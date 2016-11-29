@@ -15,6 +15,12 @@
 //import com.qac.oc.entities.Customer;
 //import com.qac.oc.managers.CustomerManager;
 //
+///**
+// * This implementation is to be used to pull data from an SQL database
+// * 
+// * @author James Thompson
+// *
+// */
 //@Alternative
 //@Stateless
 //public class CustomerManagerSQL implements CustomerManager {

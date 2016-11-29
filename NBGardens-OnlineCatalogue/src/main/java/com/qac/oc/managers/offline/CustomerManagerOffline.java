@@ -10,6 +10,12 @@ import com.qac.oc.entities.Customer;
 import com.qac.oc.managers.CustomerManager;
 import com.qac.oc.util.TestData;
 
+/**
+ * This implementation is to be used while there is no datastore to pull data from
+ * 
+ * @author James Thompson
+ *
+ */
 @Stateless
 @Default
 public class CustomerManagerOffline implements CustomerManager {

@@ -10,6 +10,12 @@
 //import com.qac.oc.entities.Stock;
 //import com.qac.oc.managers.StockManager;
 //
+///**
+// * This implementation is to be used to pull data from an SQL database
+// * 
+// * @author James Thompson
+// *
+// */
 //@Stateless
 //@Alternative
 //public class StockManagerSQL implements StockManager {

@@ -12,6 +12,12 @@ import com.qac.oc.enums.ProductStatus;
 import com.qac.oc.managers.StockManager;
 import com.qac.oc.util.TestData;
 
+/**
+ * This implementation is to be used while there is no datastore to pull data from
+ * 
+ * @author James Thompson
+ *
+ */
 @Stateless
 @Default
 public class StockManagerOffline implements StockManager {

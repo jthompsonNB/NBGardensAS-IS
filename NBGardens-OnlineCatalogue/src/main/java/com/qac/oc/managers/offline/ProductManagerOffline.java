@@ -11,6 +11,12 @@ import com.qac.oc.entities.Product;
 import com.qac.oc.managers.ProductManager;
 import com.qac.oc.util.TestData;
 
+/**
+ * This implementation is to be used while there is no datastore to pull data from
+ * 
+ * @author James Thompson
+ *
+ */
 @Stateless
 @Default
 public class ProductManagerOffline implements ProductManager {

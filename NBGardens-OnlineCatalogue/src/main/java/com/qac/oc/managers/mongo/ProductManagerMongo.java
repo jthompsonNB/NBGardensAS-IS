@@ -6,17 +6,23 @@
 //import javax.enterprise.inject.Alternative;
 //import javax.persistence.EntityManager;
 //import javax.persistence.PersistenceContext;
-//import javax.persistence.Query;
 //
 //import com.qac.oc.entities.Product;
 //import com.qac.oc.managers.ProductManager;
 //
+///**
+// * This implementation is designed to pull products from MongoDB
+// * 
+// * @author James Thompson
+// *
+// */
 //@Stateless
 //@Alternative
 //public class ProductManagerMongo implements ProductManager {
 //	@PersistenceContext(unitName="Products")
 //	private EntityManager entityManager;
 //	
+//	@SuppressWarnings("unchecked")
 //	@Override
 //	public List<Product> findAll() {
 //		return entityManager.createQuery("FROM Product p").getResultList();

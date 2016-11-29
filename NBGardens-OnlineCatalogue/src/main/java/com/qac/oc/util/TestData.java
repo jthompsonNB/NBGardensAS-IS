@@ -47,11 +47,11 @@ public class TestData {
 		products.add(new Product(5, "Happy Gnome", "A very happy fella indeed"));
 		stocks.add(new Stock(5, "Happy Gnome", ProductStatus.SUMMER, 55.5f, 500));
 		products.add(new Product(6, "Zombie Gnome", "This gnome is undead and thirsty for brains!"));
-		stocks.add(new Stock(6, "Zombie Gnome", ProductStatus.AUTUM, 30.6f, 300));
+		stocks.add(new Stock(6, "Zombie Gnome", ProductStatus.AUTUMN, 30.6f, 300));
 		products.add(new Product(7, "Game of Gnomes", "These Gnomes are playing a game together. Also, several are dead..."));
 		stocks.add(new Stock(7, "Game of Gnomes", ProductStatus.ACTIVE, 60.7f, 1000));
 		products.add(new Product(8, "Count Gnomula", "A gnome of the night who will feast, on your blood!"));
-		stocks.add(new Stock(8, "Count Gnomula", ProductStatus.AUTUM, 44.5f, 300));
+		stocks.add(new Stock(8, "Count Gnomula", ProductStatus.AUTUMN, 44.5f, 300));
 		products.add(new Product(9, "Waregnome", "Man by day, Gnome by night, it's the Waregnome!"));
 		stocks.add(new Stock(9, "Waregnome", ProductStatus.DISCONTINUED, 99.99f, 100));
 		products.add(new Product(10, "Death Gnome", "This gnome appears to those who are about to die"));
