@@ -6,6 +6,12 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import com.qac.oc.util.ProductItem;
 
+/**
+ * Used to hold the last product the user selected.
+ * 
+ * @author James Thompson
+ *
+ */
 @SessionScoped
 @Named("selected")
 public class SelectedProduct implements Serializable {
