@@ -4,6 +4,10 @@ a {
     color: #0DE00D;
 }
 
+p {
+	color: maroon;
+}
+
 .btn-primary {
 	color: #fff;
 	background-color: #5cb85c;
