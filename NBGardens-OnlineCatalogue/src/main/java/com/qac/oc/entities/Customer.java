@@ -1,4 +1,5 @@
 package com.qac.oc.entities;
+import static javax.persistence.GenerationType.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -6,7 +7,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -29,7 +29,7 @@ import javax.validation.constraints.Size;
 public class Customer {
 	@Id
 	@Column(name="id", nullable=false, unique=true)
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=IDENTITY)
 	private long id;
 	@Column(nullable=false, length=225)
 	@Size(max=225)
@@ -57,6 +57,8 @@ public class Customer {
 	@ManyToMany
 	@JoinTable(name="wishlist", joinColumns=@JoinColumn(name="customers_id", referencedColumnName="id"), inverseJoinColumns=@JoinColumn(name="stock_id", referencedColumnName="id"))
 	private List<Stock> wishlist;
+	
+	
 
 	public Customer() { }
 	

@@ -1,0 +1,15 @@
+package qagardens.ims.service.entities.enums;
+
+public enum StockStatus {
+	PROCESSING, 
+	ACTIVE, 
+	DISCONTINUED, 
+	SPRING, 
+	SPRINGDISCONTINUED,
+	SUMMER, 
+	SUMMERDISCONTINUED,
+	AUTUM, 
+	AUTUMDISCONTINUED,
+	WINTER, 
+	WINTERDISCONTINUED,
+}
