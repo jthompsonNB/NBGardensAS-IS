@@ -2,15 +2,28 @@ package qagardens.ims.service.entities.pojos;
 
 import java.util.Date;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 import qagardens.ims.service.entities.enums.StockStatus;
 
 import java.time.Instant;
 
 public class Stock implements Comparable<Stock> {
+	@NotNull
 	private long id;
+	@NotNull
+	@Size(min=3, max=225)
 	private String name;
+	@NotNull
 	private StockStatus status;
+	@Past
+	@NotNull
 	private Date dateAdded;
+	@Min(0)
+	@NotNull
 	private int level;
 	
 	public Stock(String name) {
