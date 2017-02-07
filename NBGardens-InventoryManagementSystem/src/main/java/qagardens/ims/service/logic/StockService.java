@@ -2,14 +2,20 @@ package qagardens.ims.service.logic;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.swing.SortOrder;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.ValidationException;
+import javax.validation.Validator;
 
 import qagardens.common.annotations.Loggable;
 import qagardens.common.annotations.MethodAuthor;
+import qagardens.ims.data.managers.StockManager;
 import qagardens.ims.data.test.TestData;
 import qagardens.ims.service.entities.StockBuilder;
 import qagardens.ims.service.entities.pojos.Stock;
@@ -28,7 +34,7 @@ import qagardens.ims.service.entities.pojos.Stock;
 public class StockService {
 	@Inject private Logger logger;
 	@Inject
-	private TestData testData;
+	private StockManager stockManager;
 	
 	/**
 	 * Used to retrieve the list of stock in a specified order
@@ -38,7 +44,7 @@ public class StockService {
 	@MethodAuthor("James Thompson")
 	public List<Stock> retreiveStockList(SortOrder order) {
 		//List<Stock> stockList = TestData.data.getStock();
-		List<Stock> stockList = testData.getStock();
+		List<Stock> stockList = stockManager.findAll();
 		switch(order) {
 			case ASCENDING :
 				logger.finest("Returning the StockList in Acending Order");
@@ -73,8 +79,33 @@ public class StockService {
 	}
 	
 	@MethodAuthor("James Thompson")
-	public Stock addStock(String name) {
-		Stock stock = new StockBuilder().name(name).createStock();
-		return stock;
+	public Stock addStock(String name) throws ValidationException {
+		Stock stock = new Stock(name);
+		if(Validation.buildDefaultValidatorFactory().getValidator().validate(stock).isEmpty()) {
+			//Add Stock to datastore
+			return stock;
+		}
+		logger.info("Invalid Stock Creation");
+		throw new ValidationException();
+	}
+
+	public Stock addStock(Stock stock) throws ValidationException {
+		if(Validation.buildDefaultValidatorFactory().getValidator().validate(stock).isEmpty()) {
+			//Add Stock to datastore
+			return stock;
+		}
+		logger.info("Invalid Stock Creation");
+		throw new ValidationException();
+	}
+
+	public Stock retreiveStock(String id) {
+		if(id.matches("[0-9]")){
+			long stockId = Long.parseLong(id);
+			for(Stock stock : testData.getStock())
+				if(stock.getId() == stockId)
+					return stock;
+			return null;
+		}
+		return null;
 	}
 }

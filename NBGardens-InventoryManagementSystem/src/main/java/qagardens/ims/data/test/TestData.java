@@ -1,7 +1,7 @@
 package qagardens.ims.data.test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
@@ -14,14 +14,19 @@ import qagardens.ims.service.entities.pojos.Stock;
 public class TestData {
 
 	//public static TestData data = new TestData();
-	private List<Stock> stock;
+	private Map<Integer, Stock> stock;
 	
 	@PostConstruct
 	private void setupTestData() {
-		stock = new ArrayList<Stock>();
+		stock = new HashMap<Integer, Stock>();
 	}
 
-	public List<Stock> getStock() {
+	public Map<Integer, Stock> getStock() {
 		return stock;
+	}
+	
+	public void addStock(Stock stock) {
+		stock.setId(""+stock.hashCode());
+		this.stock.put(stock.hashCode(), stock);
 	}
 }

@@ -2,6 +2,8 @@ package qagardens.ims.service.entities.pojos;
 
 import java.util.Date;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -13,11 +15,12 @@ import java.time.Instant;
 
 public class Stock implements Comparable<Stock> {
 	@NotNull
-	private long id;
+	private String id;
 	@NotNull
 	@Size(min=3, max=225)
 	private String name;
 	@NotNull
+	@Enumerated(EnumType.STRING)
 	private StockStatus status;
 	@Past
 	@NotNull
@@ -33,7 +36,7 @@ public class Stock implements Comparable<Stock> {
 		this.level = 0;
 	}
 	
-	public Stock(long id, String name, StockStatus status, Date dateAdded, int level) {
+	public Stock(String id, String name, StockStatus status, Date dateAdded, int level) {
 		this.id = id;
 		this.name = name;
 		this.status = status;
@@ -45,13 +48,13 @@ public class Stock implements Comparable<Stock> {
 		// TODO Auto-generated constructor stub
 	}
 
-	public long getId() { return id; }
+	public String getId() { return id; }
 	public String getName() { return name; }
 	public StockStatus getStatus() { return status; }
 	public Date getDateAdded() { return dateAdded; }
 	public int getLevel() { return level; }
 
-	public void setId(long id) { this.id = id; }
+	public void setId(String id) { this.id = id; }
 	public void setName(String name) { this.name = name; }
 	public void setStatus(StockStatus status) { this.status = status; }
 	public void setDateAdded(Date dateAdded) { this.dateAdded = dateAdded; }
@@ -59,6 +62,6 @@ public class Stock implements Comparable<Stock> {
 
 	@Override
 	public int compareTo(Stock stock) {
-		return (int) (this.id-stock.getId());
+		return this.id.compareTo(stock.id);
 	}
 }
