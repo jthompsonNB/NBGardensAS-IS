@@ -5,13 +5,16 @@ import java.util.List;
 import java.util.Map;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
+import qagardens.common.annotations.Loggable;
 import qagardens.ims.data.managers.StockManager;
 import qagardens.ims.data.test.TestData;
-import qagardens.ims.service.entities.pojos.Stock;
+import qagardens.ims.service.entities.Stock;
+import qagardens.ims.service.entities.enums.StockStatus;
 
-@Stateless
+@Default @Stateless @Loggable
 public class StockManagerOffline implements StockManager {
 	@Inject
 	private TestData testData;
@@ -44,11 +47,12 @@ public class StockManagerOffline implements StockManager {
 
 	@Override
 	public void updateStock(Stock stock) {
-		// TODO Auto-generated method stub
+		testData.addStock(stock);
 	}
 
 	@Override
 	public void deleteStock(Stock stock) {
-		// TODO Auto-generated method stub
+		stock.setStatus(StockStatus.DISCONTINUED);
+		testData.addStock(stock);
 	}
 }

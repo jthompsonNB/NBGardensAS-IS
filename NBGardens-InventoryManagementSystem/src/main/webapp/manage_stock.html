@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>QA Gardens - Manage Stock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
 <link rel="stylesheet" media="screen" href="css/main.css">
 </head>
@@ -13,47 +14,106 @@
 			<div class="container">
 				<div class="navbar-header">
 					<!-- Page Branding -->
-					<a href="manage_stock.html"><img alt="NB gardens" src="img/cat-motivational-poster_31.jpg" width="50px" height="50px"></a>
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle Navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
+					<a href="manage_stock.html"><img alt="NB gardens"
+						src="img/QA_logo_blue.png" width="50px"
+						height="50px"></a>
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle Navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
 					</button>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<div class="navbar-right">
 						<!-- Page Links -->
 						<ul class="nav navbar-nav">
-							<li class="navbar-brand"><a href="manage_stock.html">Manage Stock</a></li>
-							<li class="navbar-brand"><a href="replenish_stock.html">Replenish Stock</a></li>
+							<li class="navbar-brand"><a href="manage_stock.html">Manage
+									Stock</a></li>
+							<li class="navbar-brand"><a href="replenish_stock.html">Replenish
+									Stock</a></li>
 						</ul>
-						<button class="btn btn-success">Exit</button>
+						<form class="navbar-form navbar-right">
+							<button class="btn btn-success">Exit</button>
+						</form>
 					</div>
 				</div>
 			</div>
 		</nav>
 		<div class="mainContent">
 			<!-- Main Content -->
-			<section>
+			<section id="stockListSection" class="col-md-3 col-sm-4">
 				<!-- stock list -->
-				<h2>Product List</h2>
-				<ul>
-					<li>Just Boots</li>
-					<li>Just Boots</li>
-					<li>Just Boots</li>
-					<li>Just Boots</li>
-					<li>Just Boots</li>
-					<li>Just Boots</li>
-					<li>Just Boots</li>
-					<li>Just Boots</li>
-					<li>Just Boots</li>
-					<li>Just Boots</li>
-				</ul>
+				<header>
+					<h2>Product List</h2>
+				</header>
+				<table>
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Qauntity</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Just Boots</td>
+							<td>10</td>
+							<td>ACTIVE</td>
+						</tr>
+						<tr>
+							<td>Just Boots</td>
+							<td>10</td>
+							<td>ACTIVE</td>
+						</tr>
+						<tr>
+							<td>Just Boots</td>
+							<td>10</td>
+							<td>ACTIVE</td>
+						</tr>
+						<tr>
+							<td>Just Boots</td>
+							<td>10</td>
+							<td>ACTIVE</td>
+						</tr>
+						<tr>
+							<td>Just Boots</td>
+							<td>10</td>
+							<td>ACTIVE</td>
+						</tr>
+						<tr>
+							<td>Just Boots</td>
+							<td>10</td>
+							<td>ACTIVE</td>
+						</tr>
+						<tr>
+							<td>Just Boots</td>
+							<td>10</td>
+							<td>ACTIVE</td>
+						</tr>
+						<tr>
+							<td>Just Boots</td>
+							<td>10</td>
+							<td>ACTIVE</td>
+						</tr>
+						<tr>
+							<td>Just Boots</td>
+							<td>10</td>
+							<td>ACTIVE</td>
+						</tr>
+
+					</tbody>
+				</table>
+				<footer>
+					<a href="#stockListSection">top</a>
+				</footer>
 			</section>
-			<section>
+			<section class="col-md-9 col-sm-8">
 				<!-- Product detail view -->
-				<h2>Manage Product</h2>
+				<header>
+					<h2>Manage Product</h2>
+				</header>
 				<div>
 					<!-- Product Info -->
 					<h3>Just Boots</h3>
@@ -70,11 +130,12 @@
 						felis. Sed eu risus sed arcu venenatis interdum id sed nisi.
 					</p>
 				</div>
-				<div>
+				<footer>
 					<!-- Management controls -->
 					<button>Edit</button>
 					<button>Discontinue</button>
-				</div>
+					<a href="" target="_blank">View on Store front</a>
+				</footer>
 			</section>
 		</div>
 	</div>

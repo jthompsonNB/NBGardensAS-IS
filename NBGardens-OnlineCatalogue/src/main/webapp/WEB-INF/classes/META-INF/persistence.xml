@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="qagardensPU" transaction-type="JTA">
+		<description>
+			This Is the persistence unit for the test Database.
+		</description>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<jar-file>file:/target/classes</jar-file>
+		<class>qagardens.ims.service.entities.Stock</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://****" />
+			<property name="javax.persistence.jdbc.user" value="****" />
+			<property name="javax.persistence.jdbc.password" value="****" />
+			<property name="hibernate.hbm2ddl.auto" value="Update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="OnlineCatalogue" transaction-type="JTA">
+		<description>
+			This Is the persistence unit for the Online Catalogue Component of the NBGardens System.
+		</description>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<validation-mode>CALLBACK</validation-mode>
+		<jar-file>file:/target/classes</jar-file>
+		<class>com.qa.oc.entities.Address</class>
+		<class>com.qa.oc.entities.Customer</class>
+		<class>com.qa.oc.entities.Stock</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:8181/nbgardensdb" />
+			<property name="javax.persistence.jdbc.user" value="onlinecatalogue" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="Products" transaction-type="JTA">
+		<provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+		<class>com.qac.oc.entities.Product</class>
+		<properties>
+			<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.inernal.JBossAppServerJtaPlatform" />
+			<property name="hibernate.ogm.datastore.database" value="nbgardensproducts" />
+			<property name="hibernate.ogm.datastore.host" value="localhost" />
+			<property name="hibernate.ogm.datastore.provider" value="MONGODB" />
+		</properties>
+	</persistence-unit>
+</persistence>

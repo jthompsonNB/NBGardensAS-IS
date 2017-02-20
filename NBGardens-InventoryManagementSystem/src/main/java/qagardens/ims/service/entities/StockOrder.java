@@ -1,4 +1,4 @@
-package qagardens.ims.service.entities.pojos;
+package qagardens.ims.service.entities;
 
 import java.util.Date;
 import java.util.List;

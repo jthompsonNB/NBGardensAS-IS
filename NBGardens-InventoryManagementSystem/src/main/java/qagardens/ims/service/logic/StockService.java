@@ -17,8 +17,7 @@ import qagardens.common.annotations.Loggable;
 import qagardens.common.annotations.MethodAuthor;
 import qagardens.ims.data.managers.StockManager;
 import qagardens.ims.data.test.TestData;
-import qagardens.ims.service.entities.StockBuilder;
-import qagardens.ims.service.entities.pojos.Stock;
+import qagardens.ims.service.entities.Stock;
 
 //imports
 
@@ -77,6 +76,17 @@ public class StockService {
 	public List<Stock> retreiveStockList() {
 		return null;
 	}
+
+	/**
+	 * Deprecated since version 0.1 in favour of addStock.
+	 * 
+	 * @param name - The name of the new stock item.
+	 */
+	@Deprecated
+	@MethodAuthor("James Thompson")
+	public void addNewStock(String name) {
+		//Code
+	}
 	
 	@MethodAuthor("James Thompson")
 	public Stock addStock(String name) throws ValidationException {
@@ -99,13 +109,6 @@ public class StockService {
 	}
 
 	public Stock retreiveStock(String id) {
-		if(id.matches("[0-9]")){
-			long stockId = Long.parseLong(id);
-			for(Stock stock : testData.getStock())
-				if(stock.getId() == stockId)
-					return stock;
-			return null;
-		}
-		return null;
+		return stockManager.findById(id);
 	}
 }

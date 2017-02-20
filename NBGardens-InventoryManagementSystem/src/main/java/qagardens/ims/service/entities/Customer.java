@@ -1,7 +1,8 @@
-package qagardens.ims.service.entities.pojos;
+package qagardens.ims.service.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Customer {
 	@Column(name="customer_Name", length=225, nullable=false)
 	private String name;
 	@NotNull
-	@ManyToOne
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="address_addressId", nullable=false)
 	private Address address;
 	@ManyToMany

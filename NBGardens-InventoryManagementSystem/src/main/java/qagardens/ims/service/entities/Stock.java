@@ -1,9 +1,14 @@
-package qagardens.ims.service.entities.pojos;
+package qagardens.ims.service.entities;
 
 import java.util.Date;
 
+import javax.persistence.Cacheable;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -13,7 +18,16 @@ import qagardens.ims.service.entities.enums.StockStatus;
 
 import java.time.Instant;
 
+@Entity
+@Table
+@Cacheable(true)
+@NamedQueries({
+	@NamedQuery(name="Stock.FIND_BY_NAME", query="SELECT s FROM stock s WHERE s.name = :name"),
+	@NamedQuery(name="Stock.FIND_ALL", query="SELECT s FROM stock s")
+})
 public class Stock implements Comparable<Stock> {
+	public static final String FIND_BY_NAME = "Stock.findByName";
+	public static final String FIND_ALL = "Stock.findAll";
 	@NotNull
 	private String id;
 	@NotNull

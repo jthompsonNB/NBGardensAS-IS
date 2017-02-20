@@ -20,7 +20,7 @@ import javax.json.stream.JsonParser;
 import com.google.gson.Gson;
 
 import qagardens.common.annotations.Loggable;
-import qagardens.ims.service.entities.pojos.Stock;
+import qagardens.ims.service.entities.Stock;
 
 /**
  * 

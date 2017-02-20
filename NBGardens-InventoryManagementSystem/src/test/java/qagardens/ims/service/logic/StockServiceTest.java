@@ -11,8 +11,8 @@ import javax.swing.SortOrder;
 import org.junit.Before;
 import org.junit.Test;
 
+import qagardens.ims.service.entities.Stock;
 import qagardens.ims.service.entities.enums.StockStatus;
-import qagardens.ims.service.entities.pojos.Stock;
 
 /**
  * Tests the qagardens.ims.service.logic.StockService class

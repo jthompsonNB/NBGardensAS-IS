@@ -1,6 +1,7 @@
 package qagardens.ims.service.controllers;
 
 import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.validation.ValidationException;
 import javax.ws.rs.BadRequestException;
@@ -16,13 +17,13 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
-import qagardens.ims.service.entities.pojos.Stock;
+import qagardens.ims.service.entities.Stock;
 import qagardens.ims.service.logic.StockService;
 
 @Path("/stock")
 @Produces({MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_JSON})
-@Stateless
+@RequestScoped
 public class StockController {
 	@Inject
 	private StockService stockService;

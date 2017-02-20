@@ -2,7 +2,7 @@ package qagardens.ims.data.managers;
 
 import java.util.List;
 
-import qagardens.ims.service.entities.pojos.Stock;
+import qagardens.ims.service.entities.Stock;
 
 public interface StockManager {
 	public Stock persistStock(Stock stock);
