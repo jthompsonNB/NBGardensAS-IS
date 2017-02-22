@@ -34,6 +34,6 @@ public class StockServiceTest {
 	@Test
 	public void testAddStock() {
 		assertEquals("Did not correctly add a new stock line" , new Stock("addStockTest"), stockService.addStock("addStockTest"));
-		assertNotEquals("Incorrectly assigned the Stock ID",new Stock(0, "addStockTest", StockStatus.PROCESSING, Date.from(Instant.now()), 0), stockService.addStock("addStockTest"));
+		assertNotEquals("Incorrectly assigned the Stock ID",new Stock("0", "addStockTest", StockStatus.PROCESSING, Date.from(Instant.now()), 0), stockService.addStock("addStockTest"));
 	}
 }

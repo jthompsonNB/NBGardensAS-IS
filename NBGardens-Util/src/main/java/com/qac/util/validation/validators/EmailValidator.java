@@ -1,16 +1,14 @@
-package qagardens.common.Validators;
+package com.qac.util.validation.validators;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import qagardens.common.annotations.Email;
+import com.qac.util.validation.Email;
 
 public class EmailValidator implements ConstraintValidator<Email, String>{
 
 	@Override
-	public void initialize(Email constraintAnnotation) {
-		// TODO Auto-generated method stub		
-	}
+	public void initialize(Email constraintAnnotation) {}
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {

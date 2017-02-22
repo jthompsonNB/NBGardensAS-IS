@@ -1,7 +1,4 @@
-/**
- * 
- */
-package qagardens.common.annotations;
+package com.qac.util.validation;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
@@ -13,11 +10,9 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.constraints.NotNull;
 
-import qagardens.common.Validators.EmailValidator;
+import com.qac.util.validation.validators.EmailValidator;
 
-@NotNull
 @Constraint(validatedBy={EmailValidator.class})
 @Retention(RUNTIME)
 @Target({FIELD, PARAMETER, ANNOTATION_TYPE})

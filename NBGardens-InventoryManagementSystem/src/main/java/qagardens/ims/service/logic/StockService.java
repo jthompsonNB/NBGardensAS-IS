@@ -2,21 +2,18 @@ package qagardens.ims.service.logic;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.swing.SortOrder;
-import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.ValidationException;
-import javax.validation.Validator;
 
-import qagardens.common.annotations.Loggable;
-import qagardens.common.annotations.MethodAuthor;
+import com.qac.util.documentation.Author;
+import com.qac.util.logging.Loggable;
+
 import qagardens.ims.data.managers.StockManager;
-import qagardens.ims.data.test.TestData;
 import qagardens.ims.service.entities.Stock;
 
 //imports
@@ -40,7 +37,7 @@ public class StockService {
 	 * @param order - the Order to sort the list by.
 	 * @return - The List of stock in the order specified.
 	 */
-	@MethodAuthor("James Thompson")
+	@Author("James Thompson")
 	public List<Stock> retreiveStockList(SortOrder order) {
 		//List<Stock> stockList = TestData.data.getStock();
 		List<Stock> stockList = stockManager.findAll();
@@ -72,7 +69,7 @@ public class StockService {
 	 * @param order - the Order to sort the list by.
 	 * @return - The List of stock in the order specified.
 	 */
-	@MethodAuthor("James Thompson")
+	@Author("James Thompson")
 	public List<Stock> retreiveStockList() {
 		return null;
 	}
@@ -83,12 +80,12 @@ public class StockService {
 	 * @param name - The name of the new stock item.
 	 */
 	@Deprecated
-	@MethodAuthor("James Thompson")
+	@Author("James Thompson")
 	public void addNewStock(String name) {
 		//Code
 	}
 	
-	@MethodAuthor("James Thompson")
+	@Author("James Thompson")
 	public Stock addStock(String name) throws ValidationException {
 		Stock stock = new Stock(name);
 		if(Validation.buildDefaultValidatorFactory().getValidator().validate(stock).isEmpty()) {

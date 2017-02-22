@@ -9,7 +9,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import qagardens.common.annotations.Loggable;
+import com.qac.util.logging.Loggable;
+
 import qagardens.ims.data.managers.StockManager;
 import qagardens.ims.service.entities.Stock;
 import qagardens.ims.service.entities.enums.StockStatus;

@@ -1,4 +1,4 @@
-package qagardens.common.logging;
+package com.qac.util.logging.intrerceptors;
 
 import java.util.logging.Logger;
 
@@ -8,7 +8,7 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
-import qagardens.common.annotations.Loggable;
+import com.qac.util.logging.Loggable;
 
 @Interceptor
 @Loggable

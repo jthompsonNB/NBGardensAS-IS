@@ -8,7 +8,8 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
-import qagardens.common.annotations.Loggable;
+import com.qac.util.logging.Loggable;
+
 import qagardens.ims.data.managers.StockManager;
 import qagardens.ims.data.test.TestData;
 import qagardens.ims.service.entities.Stock;

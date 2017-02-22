@@ -1,11 +1,15 @@
 package qagardens.ims.service.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -58,9 +62,7 @@ public class Stock implements Comparable<Stock> {
 		this.level = level;
 	}
 	
-	public Stock() {
-		// TODO Auto-generated constructor stub
-	}
+	public Stock() {}
 
 	public String getId() { return id; }
 	public String getName() { return name; }

@@ -1,7 +1,5 @@
 package qagardens.ims.data;
 
-import java.io.Reader;
-import java.io.StringReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -14,12 +12,10 @@ import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
-import javax.json.JsonReader;
-import javax.json.stream.JsonParser;
 
 import com.google.gson.Gson;
+import com.qac.util.logging.Loggable;
 
-import qagardens.common.annotations.Loggable;
 import qagardens.ims.service.entities.Stock;
 
 /**
